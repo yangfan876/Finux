@@ -1,5 +1,3 @@
-.text
-.data
 .code16
 .globl start
 start:
