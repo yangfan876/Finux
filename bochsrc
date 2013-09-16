@@ -1,3 +1,4 @@
+megs: 2
 floppya: 1_44=floppy.img, status=inserted
 
 boot: floppy
