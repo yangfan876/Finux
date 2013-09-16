@@ -1,5 +1,5 @@
 /*
- *print "Hello World" in the real mode
+ *print "Hello World" in the real modle
  */
 
 .code16

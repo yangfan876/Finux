@@ -1,3 +1,7 @@
+/*
+ *get the memory map.
+ */
+
 .code16
 
 .globl _start
