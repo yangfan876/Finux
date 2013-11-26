@@ -27,13 +27,13 @@ _start:
 .code32
 
 CODE32_START:
-	
+
 	xorl %eax, %eax
 	movw $0x10, %ax
 	movw %ax, %ds
 	movw %ax, %es
 	movw %ax, %gs
-	
+
 	movl $Hello, %esi
 	movl $0x500000, %edi
 	movl HelloLen, %ecx
@@ -47,11 +47,11 @@ CODE32_START:
 	movl HelloLen, %ecx
 
 	movb $0x0c, %ah
-	
+
 loop1:
 	movb (%esi), %al
 	movw %ax, %gs:(%edi)
-	
+
 	inc %esi
 	addl $2, %edi
 

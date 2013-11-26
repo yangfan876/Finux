@@ -1,11 +1,11 @@
 .code16
-.globl start
-start:
+.globl _start
+_start:
 	movw %cs, %ax
 	movw %ax, %ds
 	movw %ax, %es
 	movw %ax, %ss
-	
+
 	lgdt GDTPTR
 
 	cli

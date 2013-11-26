@@ -25,11 +25,11 @@ _start:
 	movl $Hello, %esi
 	xorl %edi, %edi
 	call print_real
-	
+
 	jmp .
 
 print_real:
-	
+
 	movb $0x0c, %ah
 
 loop1:
@@ -49,4 +49,4 @@ HelloLen:
 	.short .-Hello
 
 .org 510
-.word 0xaa55	
+.word 0xaa55

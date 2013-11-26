@@ -9,7 +9,7 @@ _start:
 	movw %cs, %ax
 	movw %ax, %ds
 	movw %ax, %ss
-	
+
 	xorl %eax, %eax
 	movw $buffer, %di
 	xorl %ebx, %ebx
