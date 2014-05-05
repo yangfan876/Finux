@@ -1,4 +1,4 @@
-OBJ_FILE := boot.s
+OBJ_FILE := e820.s
 OBJ_BIN := boot.o
 OBJ := boot.bin
 IMG := boot.img
@@ -8,6 +8,7 @@ BOOT_ASFLAGS := -o
 LD := ld
 
 BOOT_LDFLAGS := -e _start -Ttext 0x7c00 -o
+#BOOT_LDFLAGS := -e _start  -o
 
 .PHONY : all clean
 

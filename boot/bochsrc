@@ -1,0 +1,6 @@
+megs: 32
+floppya: 1_44=../b.floppy, status=inserted
+
+boot: floppy
+ata0-master: type=disk, path="../hd.hdimg", mode=flat
+#log: ./bochs.log

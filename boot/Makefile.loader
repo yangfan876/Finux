@@ -1,0 +1,48 @@
+C_FILE := loader.c
+C_BIN := loader.o
+
+OTHER_BIN := display.o 8259a.o init_idt.o hd.o timer.o string.o fs.o interrupt.o
+
+OBJ_FILE := loader.s
+OBJ_BIN := loaderasm.o
+
+LOADER := loader
+OBJ := loader.bin
+DISK := ../b.floppy
+
+
+AS := as
+LOADER_ASFLAGS := -gstabs -o
+CC := gcc
+LOADER_CFLAGS := -c -g -I ../include/ -Wall -o
+LD := ld
+LOADER_LDFLAGS := -e loader_start -Ttext 0x9000 -o
+
+.PHONY: all
+
+all: $(OBJ)
+	sudo mount $(DISK) /mnt/floppy/
+	sudo cp ./loader.bin /mnt/floppy/
+	sleep 1
+	sudo umount /mnt/floppy/
+
+
+$(OBJ_BIN): $(OBJ_FILE)
+	$(AS) $(LOADER_ASFLAGS) $@ $<
+
+$(C_BIN): $(C_FILE)
+	$(CC) $(LOADER_CFLAGS) $@ $<
+	$(CC) $(LOADER_CFLAGS) display.o display.c
+	$(CC) $(LOADER_CFLAGS) 8259a.o 8259a.c
+	$(CC) $(LOADER_CFLAGS) init_idt.o init_idt.c
+	$(CC) $(LOADER_CFLAGS) hd.o hd.c
+	$(CC) $(LOADER_CFLAGS) timer.o timer.c
+	$(CC) $(LOADER_CFLAGS) string.o ../lib/string.c
+	$(CC) $(LOADER_CFLAGS) fs.o fs.c
+	$(CC) $(LOADER_CFLAGS) interrupt.o interrupt.c
+
+$(LOADER): $(OBJ_BIN) $(C_BIN)
+	$(LD) $(LOADER_LDFLAGS) $@ $(OBJ_BIN) $(C_BIN) $(OTHER_BIN)
+
+$(OBJ): $(LOADER)
+	objcopy -S -O binary $(LOADER) $(OBJ)

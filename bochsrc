@@ -1,4 +1,4 @@
 megs: 32
-floppya: 1_44=boot.img, status=inserted
+floppya: 1_44=b.floppy, status=inserted
 
 boot: floppy
