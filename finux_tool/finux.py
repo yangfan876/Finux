@@ -215,17 +215,40 @@ def cp_file(superblock, inode_map, sector_map, inode_array, file_entry):
 
 		ext_file.close()
 
+		return file_entry
+
 def find_file_in_root(file_name, root_inode):
 	hd.seek(root_inode.file_start_sect*512)
-	dir_entrys = []
 	for i in range(root_inode.file_sector_cnt):
 		sector = hd.read(512)
 		for j in range(512/16):
 			entry = sector[j*0x10:(j+1)*0x10]
-			if struct.unpack("I12c", entry)[1] == file_name:
-				return struct.unpack("I12c", entry)
+			if ''.join(struct.unpack("I12c", entry)[1:]) == file_name:
+				return tmp_entry((struct.unpack("I12c", entry)[0], \
+								''.join(struct.unpack("I12c", entry)[1:])))
+
 	return None
 
+def write_entry_in_root(file_entry, root_inode):
+	hd.seek(root_inode.file_start_sect*512)
+	for i in range(root_inode.file_sector_cnt):
+		sector = hd.read(512)
+		for j in range(512/16):
+			entry = sector[j*0x10:(j+1)*0x10]
+			tmp_file_name = ''.join(struct.unpack("I12c", entry)[1:])
+			tmp_file_inode = struct.unpack("I12c", entry)[0]
+			if tmp_file_name == file_entry.name or tmp_file_inode == 0:
+				tmp_entry = dir_entry((file_entry.inode_num, file_entry.name))
+				if len(tmp_entry.name) != 12:
+					for i in range(12-len(tmp_entry.name)):
+						tmp_entry.name += ' '
+				sector = sector[:j*0x10] + struct.pack("I12c", tmp_entry.inode_num, tmp_entry.name[0],	\
+						 tmp_entry.name[1], tmp_entry.name[2], tmp_entry.name[3], tmp_entry.name[4],\
+						 tmp_entry.name[5], tmp_entry.name[6], tmp_entry.name[7], tmp_entry.name[8], \
+						 tmp_entry.name[9], tmp_entry.name[10], tmp_entry.name[11]) + sector[(j+1)*0x10:]
+				hd.seek(hd.tell()-512)
+				hd.write(sector)
+				return
 
 if __name__ == '__main__':
 	part_info = find_part_table()
@@ -257,10 +280,11 @@ if __name__ == '__main__':
 
 	if sys.argv[2] == 'cp':
 		file_entry = find_file_in_root(sys.argv[3], root_inode)
-		cp_file(superblock, inode_map, sector_map, inode_array, file_entry)
+		file_entry = cp_file(superblock, inode_map, sector_map, inode_array, file_entry)
 	else:
 		print sys.argv[2] + ':Finux do not suppt.'
 
 	write_inode_array(superblock, inode_array)
 	write_inode_map(superblock, inode_map)
 	write_sector_map(superblock, sector_map)
+	write_entry_in_root(file_entry, root_inode)
