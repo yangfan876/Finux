@@ -97,6 +97,8 @@ CODE32_START:
 	movw $0x10, %ax
 	movw %ax, %ds		/*设置段寄存器*/
 	movw %ax, %ss
+	movw %ax, %es
+	movw %ax, %fs
 	movw $0x18, %ax
 	movw %ax, %gs
 	movl $0x7bff, %esp	/*和boot.s中一样，这里将栈基址设为0x7bff,*/

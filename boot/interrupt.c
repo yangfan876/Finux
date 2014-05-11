@@ -37,24 +37,7 @@ u32 *interrupt[16];
 			"iret\n\t");				\
 }
 
-/*char ticks = 'A';
 
-void timer_handler(void)
-{
-	if (ticks == 'z')
-		ticks = 'A';
-
-	asm(
-		"movb $0xc, %ah\n\t"
-		"movb ticks, %al\n\t"
-		"movw %ax, %gs:(24*160)\n\t"
-		"movb $0x20, %al\n\t"
-		"outb %al, $0x20\n\t"
-		);
-	ticks ++;
-	return;
-
-}*/
 void irq00_handler(void)
 {
 	interrupt_master(0);

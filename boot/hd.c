@@ -112,6 +112,7 @@ void hd_identify(void)
 void hd_read(u32 LBA, int sectorcnt, char *buf)
 {
 	struct hd_cmd cmd;
+	int i;
 	cmd.features = 0;
 	cmd.sector_count = sectorcnt;
 	cmd.LBA_low = LBA & 0xff;
@@ -126,6 +127,8 @@ void hd_read(u32 LBA, int sectorcnt, char *buf)
 	HD.port = COM_Data;
 	HD.bufsize = sectorcnt * 512;
 	hd_cmd_out(&cmd);
+	for (i = 0; i < 1000; i++)
+	  io_delay();
 	while (HD.cmdnow == cmd.command);
 	memcpy(buf, HD.hdbuf, HD.bufsize);
 	return;

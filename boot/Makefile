@@ -31,6 +31,6 @@ clean:
 debug-bochs:
 	bochs -q
 debug-qemu:
-	qemu-system-i386 -S -m 32 -fda ../b.floppy -hda ../hd.hdimg -boot order=a
+	qemu-system-i386 -S -m 32 -fda ../b.floppy -hda ../hd.hdimg -boot order=a -D ./qemu.log
 qemu-run:
 	qemu-system-i386 -m 32 -fda ../b.floppy -hda ../hd.hdimg -boot order=a

@@ -3,6 +3,11 @@
 /*函数声明*/
 void get_part_information(void);
 int make_fs(void);
+void init_Finuxfs(void);
+void loader_kernel(void);
+void get_super_block(void);
+void get_inode_array(void);
+void get_root_area(void);
 
 /*分区表中用到的一些宏*/
 #define PART_TABLE_OFFSET 0x1be		//分区表在扇区中的偏移
@@ -18,20 +23,20 @@ int make_fs(void);
 /*分区表结构*/
 struct part_table
 {
-	u8 status;
-	u8 first_head_num;
-	u8 first_sector_num;
-	u8 first_cylinder_low;
-	u8 system_id;
-	u8 end_head_num;
-	u8 end_sector_num;
-	u8 end_cylinder_low;
-	u32 first_LBA;
-	u32 sector_cnt;
+	u8 status;						//分区状态
+	u8 first_head_num;				//起始磁头号
+	u8 first_sector_num;			//起始扇区号
+	u8 first_cylinder_low;			//起始柱面号低8位
+	u8 system_id;					//分区类型
+	u8 end_head_num;				//结束磁头号
+	u8 end_sector_num;				//结束扇区号
+	u8 end_cylinder_low;			//结束柱面号的低8位
+	u32 first_LBA;					//起始扇区的LBA
+	u32 sector_cnt;					//扇区数
 }__attribute__((packed));
 
 /*文件系统中用到的宏*/
-
+#define SECTOR_SIZE 512				//扇区大小
 #define MAX_INODE_CNT 100			//最大文件数
 #define MAX_INODE_SECTORS ((MAX_INODE_CNT*sizeof(struct inode) + 511)/512)		//inode array sectors
 #define INODES_IN_SECTOR (512/sizeof(struct inode))								//一个sector中有多少个inode
@@ -76,8 +81,6 @@ struct inode
 	u32	file_sector_cnt;
 };
 
-
-
 /*Finux filesystem dir entry*/
 struct dir_entry
 {
@@ -85,3 +88,5 @@ struct dir_entry
 	char name[MAX_FILENAME_LEN];
 };
 
+
+#define KERNEL_LOAD_ADDRESS 0x100000		/*kernel将被加载到1M地址处*/

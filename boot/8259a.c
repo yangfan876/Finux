@@ -62,7 +62,7 @@ static inline unsigned char inb_pic(unsigned int port)
  *初始化8259A中断控制器
  *8259A的初始化介绍可参见博客:
  *http://blog.163.com/yangfan876@126/blog/static/806124562012102141140636/
- *在loader阶段，目前值开启硬盘中断，其他屏蔽。
+ *在loader阶段，目前只开启硬盘中断，其他屏蔽。
  * */
 
 void Init_8259A(void)

@@ -7,7 +7,7 @@ import os
 
 part_table_start = 0x1be
 part_table_end = 0x1fe
-
+Finux_first_LBA = 0
 primary = []
 logical = []
 Finux_part = None
@@ -166,7 +166,11 @@ def set_sector_map(sector_map, sector_start, sector_cnt):
 			sector_map[sector_start] = 0xff
 			sector_start += 1
 
-		sector_map[sector_start] = ((1<<((sector_cnt - i)+1))-1)<<(8-(sector_cnt-i))
+#		sector_map[sector_start] = ((1<<((sector_cnt - i)+1))-1) << (8-(sector_cnt - i))
+		tmp = (1<<(sector_cnt-i))
+		tmp = tmp - 1
+		tmp = tmp << (8-(sector_cnt - i))
+		sector_map[sector_start] = tmp
 	else:
 		sector_map[sector_start] = ((1 << sector_cnt)-1) << (8-sector_cnt)
 	return sector_map
@@ -193,10 +197,10 @@ def cp_file(superblock, inode_map, sector_map, inode_array, file_entry):
 		inode_map = set_inode_map(inode_map, inode_num)
 
 		sector_num = find_sectors_in_map(sector_map, file_inode.file_sector_cnt)
-
 		if sector_num == -1:
 			print "no more space to load %s" % file_entry.name
 			return
+		file_inode.file_start_sect = superblock.first_data_sector + sector_num*8
 
 		sector_map = set_sector_map(sector_map, sector_num, file_inode.file_sector_cnt)
 
@@ -266,6 +270,7 @@ if __name__ == '__main__':
 		exit()
 
 	superblock = get_super_block(part_base)
+	Finux_first_LBA = part_base
 	display_SB(superblock)
 	inode_array = get_inode_array(superblock)
 	root_inode = inode_array[0]

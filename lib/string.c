@@ -24,6 +24,18 @@ int strlen(const char *str)
 	return i;
 }
 
+int strcmp(const char *str1, const char *str2)
+{
+	while(*str1++ == *str2++)
+	{
+		if (*str1 == '\0')
+		{
+			break;
+		}
+	}
+	return *str1 - *str2;
+}
+
 void *memset(void *str, int ch, size_t n)
 {
 	int i;

@@ -6,6 +6,20 @@
 /*主分区表和逻辑分区表分别存在primary和logical两个分区表数组中*/
 struct part_table primary[PRIMARY_MAX_CNT], logical[LOGIC_MAX_CNT];
 
+/*super block*/
+struct super_block super_block;
+
+/*root area*/
+struct dir_entry root_area[MAX_INODE_CNT];
+
+/*inode array*/
+struct inode inode_array[MAX_INODE_CNT];
+
+/*tmp buf*/
+char tmp_buf[SECTOR_SIZE];
+
+/*Finux part base sector number*/
+u32 base_sector = 0xb000;
 
 /*获取分区表，Finux只支持最多10个拓展分区*/
 void get_part_information(void)
@@ -69,7 +83,7 @@ void get_part_information(void)
 }
 
 /*将sector map对应位图置位*/
-static int set_sector_map(int local, u8 *buf, int zo)
+/*static int set_sector_map(int local, u8 *buf, int zo)
 {
 	int off_in_sector = 0, u8_num = 0, off_in_u8 = 0;
 
@@ -87,16 +101,15 @@ static int set_sector_map(int local, u8 *buf, int zo)
 		PANIC("In the set_sector_map 'ZO' error.");
 	return 1;
 }
-
-
+*/
+/*格式化Finux fs*/
 int make_fs(void)
 {
 	char buf[512];
 	struct super_block *tmp, superblock;
 	struct part_table *Finux_part;
-	int part, local;
+	int part;
 	struct inode root_inode;
-	u32 base_sector;
 	int i;
 
 	/*在主分区寻找FINUX分区*/
@@ -187,7 +200,7 @@ int make_fs(void)
 	memset((void *)buf, 0, sizeof(buf));
 
 	/*初始化所有inode为0*/
-	for (i = 1; i < MAX_INODE_SECTORS; i++)
+	for (i = 0; i < MAX_INODE_SECTORS; i++)
 	{
 		hd_write(superblock.inode_array_start + i, 1, buf);
 	}
@@ -198,10 +211,14 @@ int make_fs(void)
 	root_inode.file_start_sect = superblock.root_start;
 	root_inode.file_sector_cnt = superblock.root_sectors;
 
-	hd_write(superblock.inode_array_start, 1, (char *)&root_inode);
+	memcpy((void *)buf, (void *)&root_inode, sizeof(root_inode));
+
+	hd_write(superblock.inode_array_start, 1, buf);
 
 
 	/*初始化inode map*/
+	memset((void *)buf, 0, sizeof(buf));
+
 	buf[superblock.root_inode] = 1;
 	hd_write(superblock.inode_map_start, 1, buf);
 
@@ -212,12 +229,92 @@ int make_fs(void)
 		hd_write(superblock.sector_map_start + i, 1, buf);
 	}
 
-	for (local = base_sector; local < superblock.first_data_sector; local++)
+	/*初始化root目录*/
+	memset((void *)buf, 0, sizeof(buf));
+
+	for (i = 0; i < superblock.root_sectors; i++)
 	{
-		set_sector_map(local, (u8 *)buf, 1);
+		hd_write(superblock.root_start + i, 1, buf);
+	}
+	return 1;
+}
+
+static void get_sector(int LBA, char *buf)
+{
+	hd_read(LBA, 1, buf);
+}
+
+void get_super_block(void)
+{
+	get_sector(base_sector + 1, tmp_buf);
+
+	memcpy((void *)&super_block, (const void *)tmp_buf, sizeof(struct super_block));
+	return;
+}
+
+void get_root_area(void)
+{
+	int i;
+	for (i = 0; i < super_block.root_sectors - 1; i++)
+	{
+		dis_str(".", 0xc, 7, i);
+		get_sector(super_block.root_start + i, tmp_buf);
+
+		memcpy((void *)&root_area[i*(SECTOR_SIZE/sizeof(struct dir_entry))], \
+				(const void *)&tmp_buf, SECTOR_SIZE);
+	}
+	return;
+}
+
+void get_inode_array(void)
+{
+	int i;
+	for (i = 0; i < super_block.inode_sectors; i++)
+	{
+		get_sector(super_block.inode_array_start + i, tmp_buf);
+
+		memcpy((void *)&inode_array[i*(SECTOR_SIZE/sizeof(struct inode))], \
+				(const void *)&tmp_buf, SECTOR_SIZE);
+	}
+}
+
+/*在根目录下寻找指定文件的dir_entry*/
+static struct dir_entry *find_file_in_root(const char *filename)
+{
+	int i;
+	for (i = 0; i < MAX_INODE_CNT; i++)
+	{
+		if(strcmp(filename, root_area[i].name) == 0)
+		{
+			return &root_area[i];
+		}
 	}
 
-	hd_write(superblock.sector_map_start, 1, buf);
+	return (struct dir_entry *)0x0;
+}
 
-	return 1;
+/*加载kernel*/
+void loader_kernel(void)
+{
+	struct dir_entry *kernel_entry;
+	struct inode *kernel_inode;
+	char *kernel_address = (char *)KERNEL_LOAD_ADDRESS;
+	int i;
+
+	kernel_entry = find_file_in_root("vmFinux.core");
+	if (kernel_entry == 0x0)
+	{
+		PANIC("Can not find kernel file !");
+	}
+
+	kernel_inode = &inode_array[kernel_entry->inode_num];
+
+	for (i = 0; i < kernel_inode->file_sector_cnt; i++)
+	{
+		hd_read(kernel_inode->file_start_sect, 1, tmp_buf);
+		dis_str(".", 0xc, 9, i);
+		memcpy(kernel_address + i * sizeof(tmp_buf), \
+					tmp_buf, sizeof(tmp_buf));
+	}
+	return;
 }

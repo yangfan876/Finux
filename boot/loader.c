@@ -3,6 +3,7 @@
 #include "display.h"
 #include "timer.h"
 #include "fs.h"
+#include "debug.h"
 #include <sys/idt.h>
 
 void Cstart(void)
@@ -23,11 +24,25 @@ void Cstart(void)
 	hd_identify();
 	/*获取分区表信息*/
 	get_part_information();
+
 	/*检测，如果没有Finux分区则PANIC，如果有检测该分区是否有Finuxfs,如果有文件系统则返回0，没有则创建Finuxfs文件系统*/
 	if (make_fs())
 	{
-		dis_str("make Finuxfs compelet, please loader the kernel in the root dir.", 0xc, 4, 0);
+		PANIC("make Finuxfs compelet, please loader the kernel in the root dir.")
 	}
+
+	/*初始化文件系统*/
+//	init_Finuxfs();
+	dis_str("Get super block...", 0xc, 4, 0);
+	get_super_block();
+	dis_str("Get inode array...", 0xc, 5, 0);
+	get_inode_array();
+	dis_str("Get root area...", 0xc, 6, 0);
+	get_root_area();
+
+	/*将内核加载到内存中*/
+	dis_str("Loading kernle...", 0xc, 8, 0);
+	loader_kernel();
 
 	for(;;);
 }
