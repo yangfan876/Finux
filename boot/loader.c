@@ -32,7 +32,6 @@ void Cstart(void)
 	}
 
 	/*初始化文件系统*/
-//	init_Finuxfs();
 	dis_str("Get super block...", 0xc, 4, 0);
 	get_super_block();
 	dis_str("Get inode array...", 0xc, 5, 0);
@@ -43,6 +42,6 @@ void Cstart(void)
 	/*将内核加载到内存中*/
 	dis_str("Loading kernle...", 0xc, 8, 0);
 	loader_kernel();
-
-	for(;;);
+	/*跳入内核代码*/
+	asm("jmp %%eax"::"a"(KERNEL_LOAD_ADDRESS));
 }
