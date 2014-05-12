@@ -1662,7 +1662,7 @@ Disassembly of section .text:
     a4fb:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)
     a4ff:	8b 45 f4             	mov    -0xc(%ebp),%eax
     a502:	8b 15 10 cf 00 00    	mov    0xcf10,%edx
-    a508:	83 ea 01             	sub    $0x1,%edx
+    a508:	83 ea 03             	sub    $0x3,%edx
     a50b:	39 d0                	cmp    %edx,%eax
     a50d:	72 88                	jb     a497 <get_root_area+0xf>
     a50f:	90                   	nop

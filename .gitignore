@@ -1,0 +1,9 @@
+*.o
+*.img
+*.out
+*.bin
+*.swp
+loader
+*.pyc
+*.core
+*.kernel

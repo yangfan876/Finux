@@ -9,12 +9,13 @@ install:
 
 remove:
 	rm -rf ./hd.hdimg
+	rm -rf ./vmFinux.*
 	cp test/hd.hdimg ./
 
 kernel:
 	cd kernel && make -f Makefile
 debug-qemu:
-	qemu-system-i386 -S -m 32 -fda ./b.floppy -hda ./hd.hdimg -boot order=a -D ./qemu.log
+	qemu-system-i386 -S -m 32 -fda ./b.floppy -hda ./hd.hdimg -boot order=a -D ./qemu.log -gdb tcp::1234
 
 qemu-run:
 	qemu-system-i386 -m 32 -fda ./b.floppy -hda ./hd.hdimg -boot order=a

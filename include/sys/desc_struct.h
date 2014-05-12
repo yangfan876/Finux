@@ -1,4 +1,5 @@
 #include <type.h>
+
 /*描述符结构体，GDT，LDT，以及后面用到的调用门等描述符都以此为基础*/
 
 struct desc_struct {

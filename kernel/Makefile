@@ -1,5 +1,5 @@
 SOURCE_FILE := kernel.c
-OBJ_FILE := kernel.o
+OBJ_FILE := kernel.o desc/gdt.o asm.o
 OBJ := vmFinux.core
 LD := ld
 CC := gcc
@@ -11,12 +11,16 @@ LOADER_LDFLAGS := -e kernel_start -Ttext 0x200000 -o
 all: $(OBJ)
 	objcopy -S -O binary vmFinux.kernel $(OBJ)
 	cp $(OBJ) ../ -f
+	cp vmFinux.kernel ../ -f
+	objdump -d vmFinux.kernel > ../obj.S
 
 $(OBJ_FILE): $(SOURCE_FILE)
 	$(CC) $(LOADER_CFLAGS) kernel.o kernel.c
+	$(CC) $(LOADER_CFLAGS) desc/gdt.o desc/gdt.c
+	$(CC) $(LOADER_CFLAGS) asm.o asm.c
 
 $(OBJ): $(OBJ_FILE)
 	$(LD) $(LOADER_LDFLAGS) vmFinux.kernel $(OBJ_FILE)
 
 clean:
-	rm -rf *.o *.core
+	rm -R -rf *.o *.core */*.o

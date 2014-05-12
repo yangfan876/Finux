@@ -255,7 +255,7 @@ void get_super_block(void)
 void get_root_area(void)
 {
 	int i;
-	for (i = 0; i < super_block.root_sectors - 1; i++)
+	for (i = 0; i < super_block.root_sectors - 3; i++)
 	{
 		dis_str(".", 0xc, 7, i);
 		get_sector(super_block.root_start + i, tmp_buf);
