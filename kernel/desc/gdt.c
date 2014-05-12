@@ -12,8 +12,7 @@ void change_gdt(void)
 	u16 gs = _DIS_GS_;
 
 	/*初始化gdt*/
-	GDT_ENTRY_INIT(gdt[0], 0, 0, 0);
-	GDT_ENTRY_INIT(gdt[KCS_LOCAL], 0xc0fb, 0, 0xfffff);
+	GDT_ENTRY_INIT(gdt[KCS_LOCAL], 0xc09b, 0, 0xfffff);
 	GDT_ENTRY_INIT(gdt[KDS_LOCAL], 0xc093, 0, 0xfffff);
 	GDT_ENTRY_INIT(gdt[UCS_LOCAL], 0xc0fa, 0, 0xfffff);
 	GDT_ENTRY_INIT(gdt[UDS_LOCAL], 0xc0f2, 0, 0xfffff);
