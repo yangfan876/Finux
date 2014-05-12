@@ -240,7 +240,7 @@ Disassembly of section .text:
     929e:	c7 04 24 78 a8 00 00 	movl   $0xa878,(%esp)
     92a5:	e8 0e 00 00 00       	call   92b8 <dis_str>
     92aa:	e8 13 13 00 00       	call   a5c2 <loader_kernel>
-    92af:	b8 00 00 10 00       	mov    $0x100000,%eax
+    92af:	b8 00 00 20 00       	mov    $0x200000,%eax
     92b4:	ff e0                	jmp    *%eax
     92b6:	c9                   	leave  
     92b7:	c3                   	ret    
@@ -1734,7 +1734,7 @@ Disassembly of section .text:
     a5c6:	56                   	push   %esi
     a5c7:	53                   	push   %ebx
     a5c8:	83 ec 2c             	sub    $0x2c,%esp
-    a5cb:	c7 45 e0 00 00 10 00 	movl   $0x100000,-0x20(%ebp)
+    a5cb:	c7 45 e0 00 00 20 00 	movl   $0x200000,-0x20(%ebp)
     a5d2:	c7 04 24 c2 a8 00 00 	movl   $0xa8c2,(%esp)
     a5d9:	e8 96 ff ff ff       	call   a574 <find_file_in_root>
     a5de:	89 45 dc             	mov    %eax,-0x24(%ebp)

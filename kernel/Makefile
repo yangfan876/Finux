@@ -4,7 +4,7 @@ OBJ := vmFinux.core
 LD := ld
 CC := gcc
 LOADER_CFLAGS := -c -g -I ../include/ -Wall -o
-LOADER_LDFLAGS := -e kernel_start -Ttext 0x100000 -o
+LOADER_LDFLAGS := -e kernel_start -Ttext 0x200000 -o
 
 .PHONY: all, clean
 

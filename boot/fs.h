@@ -89,4 +89,4 @@ struct dir_entry
 };
 
 
-#define KERNEL_LOAD_ADDRESS 0x100000		/*kernel将被加载到1M地址处*/
+#define KERNEL_LOAD_ADDRESS 0x200000		/*kernel将被加载到1M地址处*/
