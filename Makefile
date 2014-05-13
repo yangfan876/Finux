@@ -10,6 +10,8 @@ install:
 remove:
 	rm -rf ./hd.hdimg
 	rm -rf ./vmFinux.*
+	rm ./obj.S
+	cd kernel && make -f Makefile clean
 	cp test/hd.hdimg ./
 
 kernel:

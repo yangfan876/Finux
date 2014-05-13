@@ -42,6 +42,10 @@ void Cstart(void)
 	/*将内核加载到内存中*/
 	dis_str("Loading kernle...", 0xc, 8, 0);
 	loader_kernel();
+
+	/*关中断，必须关....*/
+	asm("cli");
+
 	/*跳入内核代码*/
 	asm("jmp %%eax"::"a"(KERNEL_LOAD_ADDRESS));
 //	asm("jmp %%eax"::"a"(0x200006));

@@ -311,7 +311,7 @@ void loader_kernel(void)
 
 	for (i = 0; i < kernel_inode->file_sector_cnt; i++)
 	{
-		hd_read(kernel_inode->file_start_sect, 1, tmp_buf);
+		hd_read(kernel_inode->file_start_sect + i, 1, tmp_buf);
 		dis_str(".", 0xc, 9, i);
 		memcpy(kernel_address + i * sizeof(tmp_buf), \
 					tmp_buf, sizeof(tmp_buf));
