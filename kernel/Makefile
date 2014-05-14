@@ -1,5 +1,5 @@
 SOURCE_FILE := kernel.c
-OBJ_FILE := kernel.o desc/gdt.o asm.o 8259a/8259a.o
+OBJ_FILE := kernel.o desc/gdt.o asm.o 8259a/8259a.o desc/idt.o interrupt/interrupt.o interrupt/timer.o interrupt/exception.o echo/display.o string.o
 OBJ := vmFinux.core
 LD := ld
 CC := gcc
@@ -19,6 +19,12 @@ $(OBJ_FILE): $(SOURCE_FILE)
 	$(CC) $(LOADER_CFLAGS) desc/gdt.o desc/gdt.c
 	$(CC) $(LOADER_CFLAGS) asm.o asm.c
 	$(CC) $(LOADER_CFLAGS) 8259a/8259a.o 8259a/8259a.c
+	$(CC) $(LOADER_CFLAGS) desc/idt.o desc/idt.c
+	$(CC) $(LOADER_CFLAGS) interrupt/interrupt.o interrupt/interrupt.c
+	$(CC) $(LOADER_CFLAGS) interrupt/timer.o interrupt/timer.c
+	$(CC) $(LOADER_CFLAGS) interrupt/exception.o interrupt/exception.c
+	$(CC) $(LOADER_CFLAGS) echo/display.o echo/display.c
+	$(CC) $(LOADER_CFLAGS) string.o ../lib/string.c
 
 $(OBJ): $(OBJ_FILE)
 	$(LD) $(LOADER_LDFLAGS) vmFinux.kernel $(OBJ_FILE)

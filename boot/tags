@@ -1,0 +1,758 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AS	Makefile	/^AS := as$/;"	m
+ATA_identify	hd.h	20;"	d
+ATA_none	hd.h	23;"	d
+ATA_read	hd.h	21;"	d
+ATA_write	hd.h	22;"	d
+Again_e820	loader.s	/^Again_e820:$/;"	l
+BOOT_ASFLAGS	Makefile	/^BOOT_ASFLAGS := -gstabs -o$/;"	m
+BOOT_LDFLAGS	Makefile	/^BOOT_LDFLAGS := -e _start -Ttext 0x7c00 -o$/;"	m
+BPB_BytsPerSec	boot.s	/^	BPB_BytsPerSec:	.short 512				\/* 每扇区字节数*\/$/;"	l
+BPB_FATSz16	boot.s	/^	BPB_FATSz16:	.short 9				\/* 每FAT扇区数*\/$/;"	l
+BPB_HiddSec	boot.s	/^	BPB_HiddSec:	.int 0					\/* 隐藏扇区数*\/$/;"	l
+BPB_Media	boot.s	/^	BPB_Media:		.byte 0xF0				\/* 媒体描述符*\/$/;"	l
+BPB_NumHeads	boot.s	/^	BPB_NumHeads:	.short 2				\/* 磁头数(面数)*\/$/;"	l
+BPB_RootEntCnt	boot.s	/^	BPB_RootEntCnt:	.short 224				\/* 根目录文件数最大值*\/$/;"	l
+BPB_SecPerClus	boot.s	/^	BPB_SecPerClus:	.byte 1					\/* 每簇多少扇区*\/$/;"	l
+BPB_SecPerTrk	boot.s	/^	BPB_SecPerTrk:	.short 18				\/* 每磁道扇区数*\/$/;"	l
+BPB_TotSec16	boot.s	/^	BPB_TotSec16:	.short 2880				\/* 逻辑扇区总数*\/$/;"	l
+BPB_TotSec32	boot.s	/^	BPB_TotSec32:	.int 0					\/* wTotalSectorCount为0时这个值记录扇区数*\/$/;"	l
+BS_BootSig	boot.s	/^	BS_BootSig:		.byte 0x29				\/* 扩展引导标记 (29h)*\/$/;"	l
+BS_DrvNum	boot.s	/^	BS_DrvNum:		.byte 0					\/* 中断 13 的驱动器号*\/$/;"	l
+BS_FileSysType	boot.s	/^	BS_FileSysType:	.ascii "FAT12   "		\/* 文件系统类型, 必须 8个字节*\/$/;"	l
+BS_OEMName	boot.s	/^	BS_OEMName:		.ascii "XY_FINUX"		\/* OEM String, 必须 8 个字节*\/$/;"	l
+BS_Reserved1	boot.s	/^	BS_Reserved1:	.byte 0					\/* 未使用*\/$/;"	l
+BS_VolID	boot.s	/^	BS_VolID:		.int 0					\/* 卷序列号*\/$/;"	l
+BS_VolLab	boot.s	/^	BS_VolLab:		.ascii "XYFINUX_FAT"	\/* 卷标, 必须 11 个字节*\/$/;"	l
+CLOSED	fs.h	71;"	d
+CODE32_START	loader.s	/^CODE32_START:$/;"	l
+COM_Command	hd.h	12;"	d
+COM_Data	hd.h	3;"	d
+COM_Device	hd.h	10;"	d
+COM_Error	hd.h	5;"	d
+COM_Features	hd.h	4;"	d
+COM_LBA_H	hd.h	9;"	d
+COM_LBA_L	hd.h	7;"	d
+COM_LBA_M	hd.h	8;"	d
+COM_Sector_Count	hd.h	6;"	d
+COM_Status	hd.h	11;"	d
+CTR_ALT_Status	hd.h	15;"	d
+CTR_DEV_Control	hd.h	14;"	d
+Check_e820	loader.s	/^Check_e820:$/;"	l
+Cstart	loader.c	/^void Cstart(void)$/;"	f
+DISK	Makefile	/^DISK := ..\/b.floppy$/;"	m
+DetectCount	loader.s	/^DetectCount:$/;"	l
+Disassembly	obj.s	/^Disassembly of section .text:$/;"	l
+EOI_master	8259a.c	/^inline void EOI_master(void)$/;"	f
+EOI_slave	8259a.c	/^inline void EOI_slave(void)$/;"	f
+End_e820	loader.s	/^End_e820:$/;"	l
+FINUX_MAGIC	fs.h	44;"	d
+FINUX_SYSID	fs.h	45;"	d
+FLNumOfSector	boot.s	/^FLNumOfSector:$/;"	l
+FLSectorNum	boot.s	/^FLSectorNum:$/;"	l
+FailStr	loader.s	/^FailStr:$/;"	l
+FailStrLen	loader.s	/^FailStrLen:$/;"	l
+Fail_e820	loader.s	/^Fail_e820:$/;"	l
+GDT	loader.s	/^GDT:$/;"	l
+GDTPTR	loader.s	/^GDTPTR:$/;"	l
+HD	hd.c	/^static struct hd_status HD={ATA_none, (u32 *)0, 0, 0, 0, 0, {0}};$/;"	v	typeref:struct:hd_status	file:
+IDT	init_idt.c	/^static _idt_ IDT[IDTNUM];$/;"	v	file:
+IDT_PTR	init_idt.c	/^static _idt_ptr_ IDT_PTR ={.size = (IDTNUM * 8 -1),$/;"	v	file:
+IMG	Makefile	/^IMG := boot.img$/;"	m
+INODES_IN_SECTOR	fs.h	42;"	d
+Init_8259A	8259a.c	/^void Init_8259A(void)$/;"	f
+Init_e820	loader.s	/^Init_e820:$/;"	l
+JMP_TO_REAL	loader.s	/^JMP_TO_REAL:			\/*这里的代码是执行不到的...理论上*\/$/;"	l
+KERNEL_LOAD_ADDRESS	fs.h	92;"	d
+LBA_hig	hd.h	/^	u8 LBA_hig;$/;"	m	struct:hd_cmd
+LBA_low	hd.h	/^	u8 LBA_low;$/;"	m	struct:hd_cmd
+LBA_mid	hd.h	/^	u8 LBA_mid;$/;"	m	struct:hd_cmd
+LD	Makefile	/^LD := ld$/;"	m
+LOGIC_MAX_CNT	fs.h	17;"	d
+LoaderFileName	boot.s	/^LoaderFileName:$/;"	l
+MASTER_8259A_CMD	8259a.h	10;"	d
+MASTER_8259A_IMR	8259a.h	8;"	d
+MAX_FILENAME_LEN	fs.h	43;"	d
+MAX_INODE_CNT	fs.h	40;"	d
+MAX_INODE_SECTORS	fs.h	41;"	d
+Mem_e820	loader.s	/^Mem_e820:$/;"	l
+NOTUSE	fs.h	48;"	d
+NoLoaderStr	boot.s	/^NoLoaderStr:$/;"	l
+NoLoaderStrLen	boot.s	/^NoLoaderStrLen:$/;"	l
+OBJ	Makefile	/^OBJ := boot.bin$/;"	m
+OBJ_BIN	Makefile	/^OBJ_BIN := boot.o$/;"	m
+OBJ_FILE	Makefile	/^OBJ_FILE := boot.s$/;"	m
+PANIC	debug.h	3;"	d
+PART_EMPTY	fs.h	19;"	d
+PART_EXTENDED	fs.h	20;"	d
+PART_TABLE_END	fs.h	14;"	d
+PART_TABLE_OFFSET	fs.h	13;"	d
+PB_RsvdSecCnt	boot.s	/^	PB_RsvdSecCnt:	.short 1				\/* Boot 记录占用多少扇区*\/$/;"	l
+PRIMARY_MAX_CNT	fs.h	16;"	d
+READ_ONLY	fs.h	72;"	d
+READ_WRITE	fs.h	73;"	d
+REAL_MODE	loader.s	/^REAL_MODE:$/;"	l
+REG_Drive	hd.h	17;"	d
+SECTOR_SIZE	fs.h	39;"	d
+SLAVE_8259A_CMD	8259a.h	11;"	d
+SLAVE_8259A_IMR	8259a.h	9;"	d
+SMAP	loader.s	/^SMAP:$/;"	l
+USED	fs.h	47;"	d
+_start	boot.s	/^_start:$/;"	l
+a002	obj.s	/^    a002:	e9 aa 03 00 00       	jmp    a3b1 <make_fs+0x520>$/;"	l
+a007	obj.s	/^    a007:	c7 85 ac fd ff ff 8f 	movl   $0x89a8f,-0x254(%ebp)$/;"	l
+a00e	obj.s	/^    a00e:	9a 08 00 $/;"	l
+a011	obj.s	/^    a011:	c7 85 b0 fd ff ff 64 	movl   $0x64,-0x250(%ebp)$/;"	l
+a018	obj.s	/^    a018:	00 00 00 $/;"	l
+a01b	obj.s	/^    a01b:	8b 45 f4             	mov    -0xc(%ebp),%eax$/;"	l
+a01e	obj.s	/^    a01e:	8b 40 0c             	mov    0xc(%eax),%eax$/;"	l
+a021	obj.s	/^    a021:	89 85 b4 fd ff ff    	mov    %eax,-0x24c(%ebp)$/;"	l
+a027	obj.s	/^    a027:	c7 85 b8 fd ff ff 01 	movl   $0x1,-0x248(%ebp)$/;"	l
+a02e	obj.s	/^    a02e:	00 00 00 $/;"	l
+a031	obj.s	/^    a031:	a1 0c c0 00 00       	mov    0xc00c,%eax$/;"	l
+a036	obj.s	/^    a036:	83 c0 02             	add    $0x2,%eax$/;"	l
+a039	obj.s	/^    a039:	89 85 bc fd ff ff    	mov    %eax,-0x244(%ebp)$/;"	l
+a03f	obj.s	/^    a03f:	8b 45 f4             	mov    -0xc(%ebp),%eax$/;"	l
+a042	obj.s	/^    a042:	8b 40 0c             	mov    0xc(%eax),%eax$/;"	l
+a045	obj.s	/^    a045:	c1 e8 0c             	shr    $0xc,%eax$/;"	l
+a048	obj.s	/^    a048:	89 85 c0 fd ff ff    	mov    %eax,-0x240(%ebp)$/;"	l
+a04e	obj.s	/^    a04e:	8b 85 bc fd ff ff    	mov    -0x244(%ebp),%eax$/;"	l
+a054	obj.s	/^    a054:	83 c0 01             	add    $0x1,%eax$/;"	l
+a057	obj.s	/^    a057:	89 85 c4 fd ff ff    	mov    %eax,-0x23c(%ebp)$/;"	l
+a05d	obj.s	/^    a05d:	8b 95 c4 fd ff ff    	mov    -0x23c(%ebp),%edx$/;"	l
+a063	obj.s	/^    a063:	8b 85 c0 fd ff ff    	mov    -0x240(%ebp),%eax$/;"	l
+a069	obj.s	/^    a069:	01 d0                	add    %edx,%eax$/;"	l
+a06b	obj.s	/^    a06b:	89 85 c8 fd ff ff    	mov    %eax,-0x238(%ebp)$/;"	l
+a071	obj.s	/^    a071:	c7 85 d0 fd ff ff 03 	movl   $0x3,-0x230(%ebp)$/;"	l
+a078	obj.s	/^    a078:	00 00 00 $/;"	l
+a07b	obj.s	/^    a07b:	8b 85 d0 fd ff ff    	mov    -0x230(%ebp),%eax$/;"	l
+a081	obj.s	/^    a081:	83 c0 01             	add    $0x1,%eax$/;"	l
+a084	obj.s	/^    a084:	89 85 d0 fd ff ff    	mov    %eax,-0x230(%ebp)$/;"	l
+a08a	obj.s	/^    a08a:	c7 85 e0 fd ff ff 10 	movl   $0x10,-0x220(%ebp)$/;"	l
+a091	obj.s	/^    a091:	00 00 00 $/;"	l
+a094	obj.s	/^    a094:	c7 85 d8 fd ff ff 00 	movl   $0x0,-0x228(%ebp)$/;"	l
+a09b	obj.s	/^    a09b:	00 00 00 $/;"	l
+a09e	obj.s	/^    a09e:	8b 95 c8 fd ff ff    	mov    -0x238(%ebp),%edx$/;"	l
+a0a4	obj.s	/^    a0a4:	8b 85 d0 fd ff ff    	mov    -0x230(%ebp),%eax$/;"	l
+a0aa	obj.s	/^    a0aa:	01 d0                	add    %edx,%eax$/;"	l
+a0ac	obj.s	/^    a0ac:	89 85 d4 fd ff ff    	mov    %eax,-0x22c(%ebp)$/;"	l
+a0b2	obj.s	/^    a0b2:	c7 85 dc fd ff ff 03 	movl   $0x3,-0x224(%ebp)$/;"	l
+a0b9	obj.s	/^    a0b9:	00 00 00 $/;"	l
+a0bc	obj.s	/^    a0bc:	8b 85 dc fd ff ff    	mov    -0x224(%ebp),%eax$/;"	l
+a0c2	obj.s	/^    a0c2:	83 c0 01             	add    $0x1,%eax$/;"	l
+a0c5	obj.s	/^    a0c5:	89 85 dc fd ff ff    	mov    %eax,-0x224(%ebp)$/;"	l
+a0cb	obj.s	/^    a0cb:	8b 95 d4 fd ff ff    	mov    -0x22c(%ebp),%edx$/;"	l
+a0d1	obj.s	/^    a0d1:	8b 85 dc fd ff ff    	mov    -0x224(%ebp),%eax$/;"	l
+a0d7	obj.s	/^    a0d7:	01 d0                	add    %edx,%eax$/;"	l
+a0d9	obj.s	/^    a0d9:	89 85 cc fd ff ff    	mov    %eax,-0x234(%ebp)$/;"	l
+a0df	obj.s	/^    a0df:	c7 85 e4 fd ff ff 10 	movl   $0x10,-0x21c(%ebp)$/;"	l
+a0e6	obj.s	/^    a0e6:	00 00 00 $/;"	l
+a0e9	obj.s	/^    a0e9:	c7 44 24 08 00 02 00 	movl   $0x200,0x8(%esp)$/;"	l
+a0f0	obj.s	/^    a0f0:	00 $/;"	l
+a0f1	obj.s	/^    a0f1:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)$/;"	l
+a0f8	obj.s	/^    a0f8:	00 $/;"	l
+a0f9	obj.s	/^    a0f9:	8d 85 e8 fd ff ff    	lea    -0x218(%ebp),%eax$/;"	l
+a0ff	obj.s	/^    a0ff:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a102	obj.s	/^    a102:	e8 7f fb ff ff       	call   9c86 <memset>$/;"	l
+a107	obj.s	/^    a107:	8b 85 ac fd ff ff    	mov    -0x254(%ebp),%eax$/;"	l
+a10d	obj.s	/^    a10d:	89 85 e8 fd ff ff    	mov    %eax,-0x218(%ebp)$/;"	l
+a113	obj.s	/^    a113:	8b 85 b0 fd ff ff    	mov    -0x250(%ebp),%eax$/;"	l
+a119	obj.s	/^    a119:	89 85 ec fd ff ff    	mov    %eax,-0x214(%ebp)$/;"	l
+a11f	obj.s	/^    a11f:	8b 85 b4 fd ff ff    	mov    -0x24c(%ebp),%eax$/;"	l
+a125	obj.s	/^    a125:	89 85 f0 fd ff ff    	mov    %eax,-0x210(%ebp)$/;"	l
+a12b	obj.s	/^    a12b:	8b 85 b8 fd ff ff    	mov    -0x248(%ebp),%eax$/;"	l
+a131	obj.s	/^    a131:	89 85 f4 fd ff ff    	mov    %eax,-0x20c(%ebp)$/;"	l
+a137	obj.s	/^    a137:	8b 85 bc fd ff ff    	mov    -0x244(%ebp),%eax$/;"	l
+a13d	obj.s	/^    a13d:	89 85 f8 fd ff ff    	mov    %eax,-0x208(%ebp)$/;"	l
+a143	obj.s	/^    a143:	8b 85 c0 fd ff ff    	mov    -0x240(%ebp),%eax$/;"	l
+a149	obj.s	/^    a149:	89 85 fc fd ff ff    	mov    %eax,-0x204(%ebp)$/;"	l
+a14f	obj.s	/^    a14f:	8b 85 c4 fd ff ff    	mov    -0x23c(%ebp),%eax$/;"	l
+a155	obj.s	/^    a155:	89 85 00 fe ff ff    	mov    %eax,-0x200(%ebp)$/;"	l
+a15b	obj.s	/^    a15b:	8b 85 c8 fd ff ff    	mov    -0x238(%ebp),%eax$/;"	l
+a161	obj.s	/^    a161:	89 85 04 fe ff ff    	mov    %eax,-0x1fc(%ebp)$/;"	l
+a167	obj.s	/^    a167:	8b 85 cc fd ff ff    	mov    -0x234(%ebp),%eax$/;"	l
+a16d	obj.s	/^    a16d:	89 85 08 fe ff ff    	mov    %eax,-0x1f8(%ebp)$/;"	l
+a173	obj.s	/^    a173:	8b 85 d0 fd ff ff    	mov    -0x230(%ebp),%eax$/;"	l
+a179	obj.s	/^    a179:	89 85 0c fe ff ff    	mov    %eax,-0x1f4(%ebp)$/;"	l
+a17f	obj.s	/^    a17f:	8b 85 d4 fd ff ff    	mov    -0x22c(%ebp),%eax$/;"	l
+a185	obj.s	/^    a185:	89 85 10 fe ff ff    	mov    %eax,-0x1f0(%ebp)$/;"	l
+a18b	obj.s	/^    a18b:	8b 85 d8 fd ff ff    	mov    -0x228(%ebp),%eax$/;"	l
+a191	obj.s	/^    a191:	89 85 14 fe ff ff    	mov    %eax,-0x1ec(%ebp)$/;"	l
+a197	obj.s	/^    a197:	8b 85 dc fd ff ff    	mov    -0x224(%ebp),%eax$/;"	l
+a19d	obj.s	/^    a19d:	89 85 18 fe ff ff    	mov    %eax,-0x1e8(%ebp)$/;"	l
+a1a3	obj.s	/^    a1a3:	8b 85 e0 fd ff ff    	mov    -0x220(%ebp),%eax$/;"	l
+a1a9	obj.s	/^    a1a9:	89 85 1c fe ff ff    	mov    %eax,-0x1e4(%ebp)$/;"	l
+a1af	obj.s	/^    a1af:	8b 85 e4 fd ff ff    	mov    -0x21c(%ebp),%eax$/;"	l
+a1b5	obj.s	/^    a1b5:	89 85 20 fe ff ff    	mov    %eax,-0x1e0(%ebp)$/;"	l
+a1bb	obj.s	/^    a1bb:	a1 0c c0 00 00       	mov    0xc00c,%eax$/;"	l
+a1c0	obj.s	/^    a1c0:	8d 50 01             	lea    0x1(%eax),%edx$/;"	l
+a1c3	obj.s	/^    a1c3:	8d 85 ac fd ff ff    	lea    -0x254(%ebp),%eax$/;"	l
+a1c9	obj.s	/^    a1c9:	89 44 24 08          	mov    %eax,0x8(%esp)$/;"	l
+a1cd	obj.s	/^    a1cd:	c7 44 24 04 01 00 00 	movl   $0x1,0x4(%esp)$/;"	l
+a1d4	obj.s	/^    a1d4:	00 $/;"	l
+a1d5	obj.s	/^    a1d5:	89 14 24             	mov    %edx,(%esp)$/;"	l
+a1d8	obj.s	/^    a1d8:	e8 92 f8 ff ff       	call   9a6f <hd_write>$/;"	l
+a1dd	obj.s	/^    a1dd:	c7 44 24 08 00 02 00 	movl   $0x200,0x8(%esp)$/;"	l
+a1e4	obj.s	/^    a1e4:	00 $/;"	l
+a1e5	obj.s	/^    a1e5:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)$/;"	l
+a1ec	obj.s	/^    a1ec:	00 $/;"	l
+a1ed	obj.s	/^    a1ed:	8d 85 e8 fd ff ff    	lea    -0x218(%ebp),%eax$/;"	l
+a1f3	obj.s	/^    a1f3:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a1f6	obj.s	/^    a1f6:	e8 8b fa ff ff       	call   9c86 <memset>$/;"	l
+a1fb	obj.s	/^    a1fb:	c7 45 ec 00 00 00 00 	movl   $0x0,-0x14(%ebp)$/;"	l
+a202	obj.s	/^    a202:	eb 29                	jmp    a22d <make_fs+0x39c>$/;"	l
+a204	obj.s	/^    a204:	8b 95 c8 fd ff ff    	mov    -0x238(%ebp),%edx$/;"	l
+a20a	obj.s	/^    a20a:	8b 45 ec             	mov    -0x14(%ebp),%eax$/;"	l
+a20d	obj.s	/^    a20d:	01 c2                	add    %eax,%edx$/;"	l
+a20f	obj.s	/^    a20f:	8d 85 e8 fd ff ff    	lea    -0x218(%ebp),%eax$/;"	l
+a215	obj.s	/^    a215:	89 44 24 08          	mov    %eax,0x8(%esp)$/;"	l
+a219	obj.s	/^    a219:	c7 44 24 04 01 00 00 	movl   $0x1,0x4(%esp)$/;"	l
+a220	obj.s	/^    a220:	00 $/;"	l
+a221	obj.s	/^    a221:	89 14 24             	mov    %edx,(%esp)$/;"	l
+a224	obj.s	/^    a224:	e8 46 f8 ff ff       	call   9a6f <hd_write>$/;"	l
+a229	obj.s	/^    a229:	83 45 ec 01          	addl   $0x1,-0x14(%ebp)$/;"	l
+a22d	obj.s	/^    a22d:	8b 45 ec             	mov    -0x14(%ebp),%eax$/;"	l
+a230	obj.s	/^    a230:	83 f8 03             	cmp    $0x3,%eax$/;"	l
+a233	obj.s	/^    a233:	76 cf                	jbe    a204 <make_fs+0x373>$/;"	l
+a235	obj.s	/^    a235:	c7 85 9c fd ff ff 02 	movl   $0x2,-0x264(%ebp)$/;"	l
+a23c	obj.s	/^    a23c:	00 00 00 $/;"	l
+a23f	obj.s	/^    a23f:	8b 85 dc fd ff ff    	mov    -0x224(%ebp),%eax$/;"	l
+a245	obj.s	/^    a245:	c1 e0 09             	shl    $0x9,%eax$/;"	l
+a248	obj.s	/^    a248:	89 85 a0 fd ff ff    	mov    %eax,-0x260(%ebp)$/;"	l
+a24e	obj.s	/^    a24e:	8b 85 d4 fd ff ff    	mov    -0x22c(%ebp),%eax$/;"	l
+a254	obj.s	/^    a254:	89 85 a4 fd ff ff    	mov    %eax,-0x25c(%ebp)$/;"	l
+a25a	obj.s	/^    a25a:	8b 85 dc fd ff ff    	mov    -0x224(%ebp),%eax$/;"	l
+a260	obj.s	/^    a260:	89 85 a8 fd ff ff    	mov    %eax,-0x258(%ebp)$/;"	l
+a266	obj.s	/^    a266:	8b 85 9c fd ff ff    	mov    -0x264(%ebp),%eax$/;"	l
+a26c	obj.s	/^    a26c:	89 85 e8 fd ff ff    	mov    %eax,-0x218(%ebp)$/;"	l
+a272	obj.s	/^    a272:	8b 85 a0 fd ff ff    	mov    -0x260(%ebp),%eax$/;"	l
+a278	obj.s	/^    a278:	89 85 ec fd ff ff    	mov    %eax,-0x214(%ebp)$/;"	l
+a27e	obj.s	/^    a27e:	8b 85 a4 fd ff ff    	mov    -0x25c(%ebp),%eax$/;"	l
+a284	obj.s	/^    a284:	89 85 f0 fd ff ff    	mov    %eax,-0x210(%ebp)$/;"	l
+a28a	obj.s	/^    a28a:	8b 85 a8 fd ff ff    	mov    -0x258(%ebp),%eax$/;"	l
+a290	obj.s	/^    a290:	89 85 f4 fd ff ff    	mov    %eax,-0x20c(%ebp)$/;"	l
+a296	obj.s	/^    a296:	8b 85 c8 fd ff ff    	mov    -0x238(%ebp),%eax$/;"	l
+a29c	obj.s	/^    a29c:	8d 95 e8 fd ff ff    	lea    -0x218(%ebp),%edx$/;"	l
+a2a2	obj.s	/^    a2a2:	89 54 24 08          	mov    %edx,0x8(%esp)$/;"	l
+a2a6	obj.s	/^    a2a6:	c7 44 24 04 01 00 00 	movl   $0x1,0x4(%esp)$/;"	l
+a2ad	obj.s	/^    a2ad:	00 $/;"	l
+a2ae	obj.s	/^    a2ae:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a2b1	obj.s	/^    a2b1:	e8 b9 f7 ff ff       	call   9a6f <hd_write>$/;"	l
+a2b6	obj.s	/^    a2b6:	c7 44 24 08 00 02 00 	movl   $0x200,0x8(%esp)$/;"	l
+a2bd	obj.s	/^    a2bd:	00 $/;"	l
+a2be	obj.s	/^    a2be:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)$/;"	l
+a2c5	obj.s	/^    a2c5:	00 $/;"	l
+a2c6	obj.s	/^    a2c6:	8d 85 e8 fd ff ff    	lea    -0x218(%ebp),%eax$/;"	l
+a2cc	obj.s	/^    a2cc:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a2cf	obj.s	/^    a2cf:	e8 b2 f9 ff ff       	call   9c86 <memset>$/;"	l
+a2d4	obj.s	/^    a2d4:	8b 85 d8 fd ff ff    	mov    -0x228(%ebp),%eax$/;"	l
+a2da	obj.s	/^    a2da:	c6 84 05 e8 fd ff ff 	movb   $0x1,-0x218(%ebp,%eax,1)$/;"	l
+a2e1	obj.s	/^    a2e1:	01 $/;"	l
+a2e2	obj.s	/^    a2e2:	8b 85 bc fd ff ff    	mov    -0x244(%ebp),%eax$/;"	l
+a2e8	obj.s	/^    a2e8:	8d 95 e8 fd ff ff    	lea    -0x218(%ebp),%edx$/;"	l
+a2ee	obj.s	/^    a2ee:	89 54 24 08          	mov    %edx,0x8(%esp)$/;"	l
+a2f2	obj.s	/^    a2f2:	c7 44 24 04 01 00 00 	movl   $0x1,0x4(%esp)$/;"	l
+a2f9	obj.s	/^    a2f9:	00 $/;"	l
+a2fa	obj.s	/^    a2fa:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a2fd	obj.s	/^    a2fd:	e8 6d f7 ff ff       	call   9a6f <hd_write>$/;"	l
+a302	obj.s	/^    a302:	8b 85 d8 fd ff ff    	mov    -0x228(%ebp),%eax$/;"	l
+a308	obj.s	/^    a308:	c6 84 05 e8 fd ff ff 	movb   $0x0,-0x218(%ebp,%eax,1)$/;"	l
+a30f	obj.s	/^    a30f:	00 $/;"	l
+a310	obj.s	/^    a310:	c7 45 ec 00 00 00 00 	movl   $0x0,-0x14(%ebp)$/;"	l
+a317	obj.s	/^    a317:	eb 29                	jmp    a342 <make_fs+0x4b1>$/;"	l
+a319	obj.s	/^    a319:	8b 95 c4 fd ff ff    	mov    -0x23c(%ebp),%edx$/;"	l
+a31f	obj.s	/^    a31f:	8b 45 ec             	mov    -0x14(%ebp),%eax$/;"	l
+a322	obj.s	/^    a322:	01 c2                	add    %eax,%edx$/;"	l
+a324	obj.s	/^    a324:	8d 85 e8 fd ff ff    	lea    -0x218(%ebp),%eax$/;"	l
+a32a	obj.s	/^    a32a:	89 44 24 08          	mov    %eax,0x8(%esp)$/;"	l
+a32e	obj.s	/^    a32e:	c7 44 24 04 01 00 00 	movl   $0x1,0x4(%esp)$/;"	l
+a335	obj.s	/^    a335:	00 $/;"	l
+a336	obj.s	/^    a336:	89 14 24             	mov    %edx,(%esp)$/;"	l
+a339	obj.s	/^    a339:	e8 31 f7 ff ff       	call   9a6f <hd_write>$/;"	l
+a33e	obj.s	/^    a33e:	83 45 ec 01          	addl   $0x1,-0x14(%ebp)$/;"	l
+a342	obj.s	/^    a342:	8b 55 ec             	mov    -0x14(%ebp),%edx$/;"	l
+a345	obj.s	/^    a345:	8b 85 c0 fd ff ff    	mov    -0x240(%ebp),%eax$/;"	l
+a34b	obj.s	/^    a34b:	39 c2                	cmp    %eax,%edx$/;"	l
+a34d	obj.s	/^    a34d:	72 ca                	jb     a319 <make_fs+0x488>$/;"	l
+a34f	obj.s	/^    a34f:	c7 44 24 08 00 02 00 	movl   $0x200,0x8(%esp)$/;"	l
+a356	obj.s	/^    a356:	00 $/;"	l
+a357	obj.s	/^    a357:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)$/;"	l
+a35e	obj.s	/^    a35e:	00 $/;"	l
+a35f	obj.s	/^    a35f:	8d 85 e8 fd ff ff    	lea    -0x218(%ebp),%eax$/;"	l
+a365	obj.s	/^    a365:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a368	obj.s	/^    a368:	e8 19 f9 ff ff       	call   9c86 <memset>$/;"	l
+a36d	obj.s	/^    a36d:	c7 45 ec 00 00 00 00 	movl   $0x0,-0x14(%ebp)$/;"	l
+a374	obj.s	/^    a374:	eb 29                	jmp    a39f <make_fs+0x50e>$/;"	l
+a376	obj.s	/^    a376:	8b 95 d4 fd ff ff    	mov    -0x22c(%ebp),%edx$/;"	l
+a37c	obj.s	/^    a37c:	8b 45 ec             	mov    -0x14(%ebp),%eax$/;"	l
+a37f	obj.s	/^    a37f:	01 c2                	add    %eax,%edx$/;"	l
+a381	obj.s	/^    a381:	8d 85 e8 fd ff ff    	lea    -0x218(%ebp),%eax$/;"	l
+a387	obj.s	/^    a387:	89 44 24 08          	mov    %eax,0x8(%esp)$/;"	l
+a38b	obj.s	/^    a38b:	c7 44 24 04 01 00 00 	movl   $0x1,0x4(%esp)$/;"	l
+a392	obj.s	/^    a392:	00 $/;"	l
+a393	obj.s	/^    a393:	89 14 24             	mov    %edx,(%esp)$/;"	l
+a396	obj.s	/^    a396:	e8 d4 f6 ff ff       	call   9a6f <hd_write>$/;"	l
+a39b	obj.s	/^    a39b:	83 45 ec 01          	addl   $0x1,-0x14(%ebp)$/;"	l
+a39f	obj.s	/^    a39f:	8b 55 ec             	mov    -0x14(%ebp),%edx$/;"	l
+a3a2	obj.s	/^    a3a2:	8b 85 dc fd ff ff    	mov    -0x224(%ebp),%eax$/;"	l
+a3a8	obj.s	/^    a3a8:	39 c2                	cmp    %eax,%edx$/;"	l
+a3aa	obj.s	/^    a3aa:	72 ca                	jb     a376 <make_fs+0x4e5>$/;"	l
+a3ac	obj.s	/^    a3ac:	b8 01 00 00 00       	mov    $0x1,%eax$/;"	l
+a3b1	obj.s	/^    a3b1:	c9                   	leave  $/;"	l
+a3b2	obj.s	/^    a3b2:	c3                   	ret    $/;"	l
+a3b3	obj.s	/^    a3b3:	55                   	push   %ebp$/;"	l
+a3b4	obj.s	/^    a3b4:	89 e5                	mov    %esp,%ebp$/;"	l
+a3b6	obj.s	/^    a3b6:	83 ec 18             	sub    $0x18,%esp$/;"	l
+a3b9	obj.s	/^    a3b9:	8b 45 08             	mov    0x8(%ebp),%eax$/;"	l
+a3bc	obj.s	/^    a3bc:	8b 55 0c             	mov    0xc(%ebp),%edx$/;"	l
+a3bf	obj.s	/^    a3bf:	89 54 24 08          	mov    %edx,0x8(%esp)$/;"	l
+a3c3	obj.s	/^    a3c3:	c7 44 24 04 01 00 00 	movl   $0x1,0x4(%esp)$/;"	l
+a3ca	obj.s	/^    a3ca:	00 $/;"	l
+a3cb	obj.s	/^    a3cb:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a3ce	obj.s	/^    a3ce:	e8 cf f5 ff ff       	call   99a2 <hd_read>$/;"	l
+a3d3	obj.s	/^    a3d3:	c9                   	leave  $/;"	l
+a3d4	obj.s	/^    a3d4:	c3                   	ret    $/;"	l
+a3d5	obj.s	/^    a3d5:	55                   	push   %ebp$/;"	l
+a3d6	obj.s	/^    a3d6:	89 e5                	mov    %esp,%ebp$/;"	l
+a3d8	obj.s	/^    a3d8:	83 ec 18             	sub    $0x18,%esp$/;"	l
+a3db	obj.s	/^    a3db:	a1 0c c0 00 00       	mov    0xc00c,%eax$/;"	l
+a3e0	obj.s	/^    a3e0:	83 c0 01             	add    $0x1,%eax$/;"	l
+a3e3	obj.s	/^    a3e3:	c7 44 24 04 e0 cc 00 	movl   $0xcce0,0x4(%esp)$/;"	l
+a3ea	obj.s	/^    a3ea:	00 $/;"	l
+a3eb	obj.s	/^    a3eb:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a3ee	obj.s	/^    a3ee:	e8 c0 ff ff ff       	call   a3b3 <get_sector>$/;"	l
+a3f3	obj.s	/^    a3f3:	a1 e0 cc 00 00       	mov    0xcce0,%eax$/;"	l
+a3f8	obj.s	/^    a3f8:	a3 e0 ce 00 00       	mov    %eax,0xcee0$/;"	l
+a3fd	obj.s	/^    a3fd:	a1 e4 cc 00 00       	mov    0xcce4,%eax$/;"	l
+a402	obj.s	/^    a402:	a3 e4 ce 00 00       	mov    %eax,0xcee4$/;"	l
+a407	obj.s	/^    a407:	a1 e8 cc 00 00       	mov    0xcce8,%eax$/;"	l
+a40c	obj.s	/^    a40c:	a3 e8 ce 00 00       	mov    %eax,0xcee8$/;"	l
+a411	obj.s	/^    a411:	a1 ec cc 00 00       	mov    0xccec,%eax$/;"	l
+a416	obj.s	/^    a416:	a3 ec ce 00 00       	mov    %eax,0xceec$/;"	l
+a41b	obj.s	/^    a41b:	a1 f0 cc 00 00       	mov    0xccf0,%eax$/;"	l
+a420	obj.s	/^    a420:	a3 f0 ce 00 00       	mov    %eax,0xcef0$/;"	l
+a425	obj.s	/^    a425:	a1 f4 cc 00 00       	mov    0xccf4,%eax$/;"	l
+a42a	obj.s	/^    a42a:	a3 f4 ce 00 00       	mov    %eax,0xcef4$/;"	l
+a42f	obj.s	/^    a42f:	a1 f8 cc 00 00       	mov    0xccf8,%eax$/;"	l
+a434	obj.s	/^    a434:	a3 f8 ce 00 00       	mov    %eax,0xcef8$/;"	l
+a439	obj.s	/^    a439:	a1 fc cc 00 00       	mov    0xccfc,%eax$/;"	l
+a43e	obj.s	/^    a43e:	a3 fc ce 00 00       	mov    %eax,0xcefc$/;"	l
+a443	obj.s	/^    a443:	a1 00 cd 00 00       	mov    0xcd00,%eax$/;"	l
+a448	obj.s	/^    a448:	a3 00 cf 00 00       	mov    %eax,0xcf00$/;"	l
+a44d	obj.s	/^    a44d:	a1 04 cd 00 00       	mov    0xcd04,%eax$/;"	l
+a452	obj.s	/^    a452:	a3 04 cf 00 00       	mov    %eax,0xcf04$/;"	l
+a457	obj.s	/^    a457:	a1 08 cd 00 00       	mov    0xcd08,%eax$/;"	l
+a45c	obj.s	/^    a45c:	a3 08 cf 00 00       	mov    %eax,0xcf08$/;"	l
+a461	obj.s	/^    a461:	a1 0c cd 00 00       	mov    0xcd0c,%eax$/;"	l
+a466	obj.s	/^    a466:	a3 0c cf 00 00       	mov    %eax,0xcf0c$/;"	l
+a46b	obj.s	/^    a46b:	a1 10 cd 00 00       	mov    0xcd10,%eax$/;"	l
+a470	obj.s	/^    a470:	a3 10 cf 00 00       	mov    %eax,0xcf10$/;"	l
+a475	obj.s	/^    a475:	a1 14 cd 00 00       	mov    0xcd14,%eax$/;"	l
+a47a	obj.s	/^    a47a:	a3 14 cf 00 00       	mov    %eax,0xcf14$/;"	l
+a47f	obj.s	/^    a47f:	a1 18 cd 00 00       	mov    0xcd18,%eax$/;"	l
+a484	obj.s	/^    a484:	a3 18 cf 00 00       	mov    %eax,0xcf18$/;"	l
+a489	obj.s	/^    a489:	90                   	nop$/;"	l
+a48a	obj.s	/^    a48a:	c9                   	leave  $/;"	l
+a48b	obj.s	/^    a48b:	c3                   	ret    $/;"	l
+a48c	obj.s	/^    a48c:	55                   	push   %ebp$/;"	l
+a48d	obj.s	/^    a48d:	89 e5                	mov    %esp,%ebp$/;"	l
+a48f	obj.s	/^    a48f:	83 ec 28             	sub    $0x28,%esp$/;"	l
+a492	obj.s	/^    a492:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)$/;"	l
+a499	obj.s	/^    a499:	eb 68                	jmp    a503 <get_root_area+0x77>$/;"	l
+a49b	obj.s	/^    a49b:	8b 45 f4             	mov    -0xc(%ebp),%eax$/;"	l
+a49e	obj.s	/^    a49e:	89 44 24 0c          	mov    %eax,0xc(%esp)$/;"	l
+a4a2	obj.s	/^    a4a2:	c7 44 24 08 07 00 00 	movl   $0x7,0x8(%esp)$/;"	l
+a4a9	obj.s	/^    a4a9:	00 $/;"	l
+a4aa	obj.s	/^    a4aa:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)$/;"	l
+a4b1	obj.s	/^    a4b1:	00 $/;"	l
+a4b2	obj.s	/^    a4b2:	c7 04 24 cc a8 00 00 	movl   $0xa8cc,(%esp)$/;"	l
+a4b9	obj.s	/^    a4b9:	e8 fe ed ff ff       	call   92bc <dis_str>$/;"	l
+a4be	obj.s	/^    a4be:	8b 15 08 cf 00 00    	mov    0xcf08,%edx$/;"	l
+a4c4	obj.s	/^    a4c4:	8b 45 f4             	mov    -0xc(%ebp),%eax$/;"	l
+a4c7	obj.s	/^    a4c7:	01 d0                	add    %edx,%eax$/;"	l
+a4c9	obj.s	/^    a4c9:	c7 44 24 04 e0 cc 00 	movl   $0xcce0,0x4(%esp)$/;"	l
+a4d0	obj.s	/^    a4d0:	00 $/;"	l
+a4d1	obj.s	/^    a4d1:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a4d4	obj.s	/^    a4d4:	e8 da fe ff ff       	call   a3b3 <get_sector>$/;"	l
+a4d9	obj.s	/^    a4d9:	8b 45 f4             	mov    -0xc(%ebp),%eax$/;"	l
+a4dc	obj.s	/^    a4dc:	c1 e0 05             	shl    $0x5,%eax$/;"	l
+a4df	obj.s	/^    a4df:	c1 e0 04             	shl    $0x4,%eax$/;"	l
+a4e2	obj.s	/^    a4e2:	05 a0 d5 00 00       	add    $0xd5a0,%eax$/;"	l
+a4e7	obj.s	/^    a4e7:	c7 44 24 08 00 02 00 	movl   $0x200,0x8(%esp)$/;"	l
+a4ee	obj.s	/^    a4ee:	00 $/;"	l
+a4ef	obj.s	/^    a4ef:	c7 44 24 04 e0 cc 00 	movl   $0xcce0,0x4(%esp)$/;"	l
+a4f6	obj.s	/^    a4f6:	00 $/;"	l
+a4f7	obj.s	/^    a4f7:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a4fa	obj.s	/^    a4fa:	e8 d9 f6 ff ff       	call   9bd8 <memcpy>$/;"	l
+a4ff	obj.s	/^    a4ff:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)$/;"	l
+a503	obj.s	/^    a503:	8b 45 f4             	mov    -0xc(%ebp),%eax$/;"	l
+a506	obj.s	/^    a506:	8b 15 10 cf 00 00    	mov    0xcf10,%edx$/;"	l
+a50c	obj.s	/^    a50c:	83 ea 03             	sub    $0x3,%edx$/;"	l
+a50f	obj.s	/^    a50f:	39 d0                	cmp    %edx,%eax$/;"	l
+a511	obj.s	/^    a511:	72 88                	jb     a49b <get_root_area+0xf>$/;"	l
+a513	obj.s	/^    a513:	90                   	nop$/;"	l
+a514	obj.s	/^    a514:	c9                   	leave  $/;"	l
+a515	obj.s	/^    a515:	c3                   	ret    $/;"	l
+a516	obj.s	/^    a516:	55                   	push   %ebp$/;"	l
+a517	obj.s	/^    a517:	89 e5                	mov    %esp,%ebp$/;"	l
+a519	obj.s	/^    a519:	83 ec 28             	sub    $0x28,%esp$/;"	l
+a51c	obj.s	/^    a51c:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)$/;"	l
+a523	obj.s	/^    a523:	eb 45                	jmp    a56a <get_inode_array+0x54>$/;"	l
+a525	obj.s	/^    a525:	8b 15 fc ce 00 00    	mov    0xcefc,%edx$/;"	l
+a52b	obj.s	/^    a52b:	8b 45 f4             	mov    -0xc(%ebp),%eax$/;"	l
+a52e	obj.s	/^    a52e:	01 d0                	add    %edx,%eax$/;"	l
+a530	obj.s	/^    a530:	c7 44 24 04 e0 cc 00 	movl   $0xcce0,0x4(%esp)$/;"	l
+a537	obj.s	/^    a537:	00 $/;"	l
+a538	obj.s	/^    a538:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a53b	obj.s	/^    a53b:	e8 73 fe ff ff       	call   a3b3 <get_sector>$/;"	l
+a540	obj.s	/^    a540:	8b 45 f4             	mov    -0xc(%ebp),%eax$/;"	l
+a543	obj.s	/^    a543:	c1 e0 05             	shl    $0x5,%eax$/;"	l
+a546	obj.s	/^    a546:	c1 e0 04             	shl    $0x4,%eax$/;"	l
+a549	obj.s	/^    a549:	05 20 cf 00 00       	add    $0xcf20,%eax$/;"	l
+a54e	obj.s	/^    a54e:	c7 44 24 08 00 02 00 	movl   $0x200,0x8(%esp)$/;"	l
+a555	obj.s	/^    a555:	00 $/;"	l
+a556	obj.s	/^    a556:	c7 44 24 04 e0 cc 00 	movl   $0xcce0,0x4(%esp)$/;"	l
+a55d	obj.s	/^    a55d:	00 $/;"	l
+a55e	obj.s	/^    a55e:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a561	obj.s	/^    a561:	e8 72 f6 ff ff       	call   9bd8 <memcpy>$/;"	l
+a566	obj.s	/^    a566:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)$/;"	l
+a56a	obj.s	/^    a56a:	8b 55 f4             	mov    -0xc(%ebp),%edx$/;"	l
+a56d	obj.s	/^    a56d:	a1 04 cf 00 00       	mov    0xcf04,%eax$/;"	l
+a572	obj.s	/^    a572:	39 c2                	cmp    %eax,%edx$/;"	l
+a574	obj.s	/^    a574:	72 af                	jb     a525 <get_inode_array+0xf>$/;"	l
+a576	obj.s	/^    a576:	c9                   	leave  $/;"	l
+a577	obj.s	/^    a577:	c3                   	ret    $/;"	l
+a578	obj.s	/^    a578:	55                   	push   %ebp$/;"	l
+a579	obj.s	/^    a579:	89 e5                	mov    %esp,%ebp$/;"	l
+a57b	obj.s	/^    a57b:	83 ec 28             	sub    $0x28,%esp$/;"	l
+a57e	obj.s	/^    a57e:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)$/;"	l
+a585	obj.s	/^    a585:	eb 32                	jmp    a5b9 <find_file_in_root+0x41>$/;"	l
+a587	obj.s	/^    a587:	8b 45 f4             	mov    -0xc(%ebp),%eax$/;"	l
+a58a	obj.s	/^    a58a:	c1 e0 04             	shl    $0x4,%eax$/;"	l
+a58d	obj.s	/^    a58d:	05 a0 d5 00 00       	add    $0xd5a0,%eax$/;"	l
+a592	obj.s	/^    a592:	83 c0 04             	add    $0x4,%eax$/;"	l
+a595	obj.s	/^    a595:	89 44 24 04          	mov    %eax,0x4(%esp)$/;"	l
+a599	obj.s	/^    a599:	8b 45 08             	mov    0x8(%ebp),%eax$/;"	l
+a59c	obj.s	/^    a59c:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a59f	obj.s	/^    a59f:	e8 9d f6 ff ff       	call   9c41 <strcmp>$/;"	l
+a5a4	obj.s	/^    a5a4:	85 c0                	test   %eax,%eax$/;"	l
+a5a6	obj.s	/^    a5a6:	75 0d                	jne    a5b5 <find_file_in_root+0x3d>$/;"	l
+a5a8	obj.s	/^    a5a8:	8b 45 f4             	mov    -0xc(%ebp),%eax$/;"	l
+a5ab	obj.s	/^    a5ab:	c1 e0 04             	shl    $0x4,%eax$/;"	l
+a5ae	obj.s	/^    a5ae:	05 a0 d5 00 00       	add    $0xd5a0,%eax$/;"	l
+a5b3	obj.s	/^    a5b3:	eb 0f                	jmp    a5c4 <find_file_in_root+0x4c>$/;"	l
+a5b5	obj.s	/^    a5b5:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)$/;"	l
+a5b9	obj.s	/^    a5b9:	83 7d f4 63          	cmpl   $0x63,-0xc(%ebp)$/;"	l
+a5bd	obj.s	/^    a5bd:	7e c8                	jle    a587 <find_file_in_root+0xf>$/;"	l
+a5bf	obj.s	/^    a5bf:	b8 00 00 00 00       	mov    $0x0,%eax$/;"	l
+a5c4	obj.s	/^    a5c4:	c9                   	leave  $/;"	l
+a5c5	obj.s	/^    a5c5:	c3                   	ret    $/;"	l
+a5c6	obj.s	/^    a5c6:	55                   	push   %ebp$/;"	l
+a5c7	obj.s	/^    a5c7:	89 e5                	mov    %esp,%ebp$/;"	l
+a5c9	obj.s	/^    a5c9:	57                   	push   %edi$/;"	l
+a5ca	obj.s	/^    a5ca:	56                   	push   %esi$/;"	l
+a5cb	obj.s	/^    a5cb:	53                   	push   %ebx$/;"	l
+a5cc	obj.s	/^    a5cc:	83 ec 2c             	sub    $0x2c,%esp$/;"	l
+a5cf	obj.s	/^    a5cf:	c7 45 e0 00 00 20 00 	movl   $0x200000,-0x20(%ebp)$/;"	l
+a5d6	obj.s	/^    a5d6:	c7 04 24 ce a8 00 00 	movl   $0xa8ce,(%esp)$/;"	l
+a5dd	obj.s	/^    a5dd:	e8 96 ff ff ff       	call   a578 <find_file_in_root>$/;"	l
+a5e2	obj.s	/^    a5e2:	89 45 dc             	mov    %eax,-0x24(%ebp)$/;"	l
+a5e5	obj.s	/^    a5e5:	83 7d dc 00          	cmpl   $0x0,-0x24(%ebp)$/;"	l
+a5e9	obj.s	/^    a5e9:	75 4a                	jne    a635 <loader_kernel+0x6f>$/;"	l
+a5eb	obj.s	/^    a5eb:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)$/;"	l
+a5f2	obj.s	/^    a5f2:	00 $/;"	l
+a5f3	obj.s	/^    a5f3:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)$/;"	l
+a5fa	obj.s	/^    a5fa:	00 $/;"	l
+a5fb	obj.s	/^    a5fb:	c7 44 24 04 09 00 00 	movl   $0x9,0x4(%esp)$/;"	l
+a602	obj.s	/^    a602:	00 $/;"	l
+a603	obj.s	/^    a603:	c7 04 24 98 a8 00 00 	movl   $0xa898,(%esp)$/;"	l
+a60a	obj.s	/^    a60a:	e8 ad ec ff ff       	call   92bc <dis_str>$/;"	l
+a60f	obj.s	/^    a60f:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)$/;"	l
+a616	obj.s	/^    a616:	00 $/;"	l
+a617	obj.s	/^    a617:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)$/;"	l
+a61e	obj.s	/^    a61e:	00 $/;"	l
+a61f	obj.s	/^    a61f:	c7 44 24 04 0a 00 00 	movl   $0xa,0x4(%esp)$/;"	l
+a626	obj.s	/^    a626:	00 $/;"	l
+a627	obj.s	/^    a627:	c7 04 24 db a8 00 00 	movl   $0xa8db,(%esp)$/;"	l
+a62e	obj.s	/^    a62e:	e8 89 ec ff ff       	call   92bc <dis_str>$/;"	l
+a633	obj.s	/^    a633:	eb fe                	jmp    a633 <loader_kernel+0x6d>$/;"	l
+a635	obj.s	/^    a635:	8b 45 dc             	mov    -0x24(%ebp),%eax$/;"	l
+a638	obj.s	/^    a638:	8b 00                	mov    (%eax),%eax$/;"	l
+a63a	obj.s	/^    a63a:	c1 e0 04             	shl    $0x4,%eax$/;"	l
+a63d	obj.s	/^    a63d:	05 20 cf 00 00       	add    $0xcf20,%eax$/;"	l
+a642	obj.s	/^    a642:	89 45 d8             	mov    %eax,-0x28(%ebp)$/;"	l
+a645	obj.s	/^    a645:	c7 45 e4 00 00 00 00 	movl   $0x0,-0x1c(%ebp)$/;"	l
+a64c	obj.s	/^    a64c:	e9 c6 00 00 00       	jmp    a717 <loader_kernel+0x151>$/;"	l
+a651	obj.s	/^    a651:	8b 45 d8             	mov    -0x28(%ebp),%eax$/;"	l
+a654	obj.s	/^    a654:	8b 50 08             	mov    0x8(%eax),%edx$/;"	l
+a657	obj.s	/^    a657:	8b 45 e4             	mov    -0x1c(%ebp),%eax$/;"	l
+a65a	obj.s	/^    a65a:	01 d0                	add    %edx,%eax$/;"	l
+a65c	obj.s	/^    a65c:	c7 44 24 08 e0 cc 00 	movl   $0xcce0,0x8(%esp)$/;"	l
+a663	obj.s	/^    a663:	00 $/;"	l
+a664	obj.s	/^    a664:	c7 44 24 04 01 00 00 	movl   $0x1,0x4(%esp)$/;"	l
+a66b	obj.s	/^    a66b:	00 $/;"	l
+a66c	obj.s	/^    a66c:	89 04 24             	mov    %eax,(%esp)$/;"	l
+a66f	obj.s	/^    a66f:	e8 2e f3 ff ff       	call   99a2 <hd_read>$/;"	l
+a674	obj.s	/^    a674:	8b 45 e4             	mov    -0x1c(%ebp),%eax$/;"	l
+a677	obj.s	/^    a677:	89 44 24 0c          	mov    %eax,0xc(%esp)$/;"	l
+a67b	obj.s	/^    a67b:	c7 44 24 08 09 00 00 	movl   $0x9,0x8(%esp)$/;"	l
+a682	obj.s	/^    a682:	00 $/;"	l
+a683	obj.s	/^    a683:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)$/;"	l
+a68a	obj.s	/^    a68a:	00 $/;"	l
+a68b	obj.s	/^    a68b:	c7 04 24 cc a8 00 00 	movl   $0xa8cc,(%esp)$/;"	l
+a692	obj.s	/^    a692:	e8 25 ec ff ff       	call   92bc <dis_str>$/;"	l
+a697	obj.s	/^    a697:	8b 45 e4             	mov    -0x1c(%ebp),%eax$/;"	l
+a69a	obj.s	/^    a69a:	c1 e0 09             	shl    $0x9,%eax$/;"	l
+a69d	obj.s	/^    a69d:	89 c2                	mov    %eax,%edx$/;"	l
+a69f	obj.s	/^    a69f:	8b 45 e0             	mov    -0x20(%ebp),%eax$/;"	l
+a6a2	obj.s	/^    a6a2:	01 d0                	add    %edx,%eax$/;"	l
+a6a4	obj.s	/^    a6a4:	ba e0 cc 00 00       	mov    $0xcce0,%edx$/;"	l
+a6a9	obj.s	/^    a6a9:	bb 00 02 00 00       	mov    $0x200,%ebx$/;"	l
+a6ae	obj.s	/^    a6ae:	89 c1                	mov    %eax,%ecx$/;"	l
+a6b0	obj.s	/^    a6b0:	83 e1 01             	and    $0x1,%ecx$/;"	l
+a6b3	obj.s	/^    a6b3:	85 c9                	test   %ecx,%ecx$/;"	l
+a6b5	obj.s	/^    a6b5:	74 0e                	je     a6c5 <loader_kernel+0xff>$/;"	l
+a6b7	obj.s	/^    a6b7:	0f b6 0a             	movzbl (%edx),%ecx$/;"	l
+a6ba	obj.s	/^    a6ba:	88 08                	mov    %cl,(%eax)$/;"	l
+a6bc	obj.s	/^    a6bc:	83 c0 01             	add    $0x1,%eax$/;"	l
+a6bf	obj.s	/^    a6bf:	83 c2 01             	add    $0x1,%edx$/;"	l
+a6c2	obj.s	/^    a6c2:	83 eb 01             	sub    $0x1,%ebx$/;"	l
+a6c5	obj.s	/^    a6c5:	89 c1                	mov    %eax,%ecx$/;"	l
+a6c7	obj.s	/^    a6c7:	83 e1 02             	and    $0x2,%ecx$/;"	l
+a6ca	obj.s	/^    a6ca:	85 c9                	test   %ecx,%ecx$/;"	l
+a6cc	obj.s	/^    a6cc:	74 0f                	je     a6dd <loader_kernel+0x117>$/;"	l
+a6ce	obj.s	/^    a6ce:	0f b7 0a             	movzwl (%edx),%ecx$/;"	l
+a6d1	obj.s	/^    a6d1:	66 89 08             	mov    %cx,(%eax)$/;"	l
+a6d4	obj.s	/^    a6d4:	83 c0 02             	add    $0x2,%eax$/;"	l
+a6d7	obj.s	/^    a6d7:	83 c2 02             	add    $0x2,%edx$/;"	l
+a6da	obj.s	/^    a6da:	83 eb 02             	sub    $0x2,%ebx$/;"	l
+a6dd	obj.s	/^    a6dd:	89 d9                	mov    %ebx,%ecx$/;"	l
+a6df	obj.s	/^    a6df:	c1 e9 02             	shr    $0x2,%ecx$/;"	l
+a6e2	obj.s	/^    a6e2:	89 c7                	mov    %eax,%edi$/;"	l
+a6e4	obj.s	/^    a6e4:	89 d6                	mov    %edx,%esi$/;"	l
+a6e6	obj.s	/^    a6e6:	f3 a5                	rep movsl %ds:(%esi),%es:(%edi)$/;"	l
+a6e8	obj.s	/^    a6e8:	89 f2                	mov    %esi,%edx$/;"	l
+a6ea	obj.s	/^    a6ea:	89 f8                	mov    %edi,%eax$/;"	l
+a6ec	obj.s	/^    a6ec:	b9 00 00 00 00       	mov    $0x0,%ecx$/;"	l
+a6f1	obj.s	/^    a6f1:	89 de                	mov    %ebx,%esi$/;"	l
+a6f3	obj.s	/^    a6f3:	83 e6 02             	and    $0x2,%esi$/;"	l
+a6f6	obj.s	/^    a6f6:	85 f6                	test   %esi,%esi$/;"	l
+a6f8	obj.s	/^    a6f8:	74 0b                	je     a705 <loader_kernel+0x13f>$/;"	l
+a6fa	obj.s	/^    a6fa:	0f b7 34 0a          	movzwl (%edx,%ecx,1),%esi$/;"	l
+a6fe	obj.s	/^    a6fe:	66 89 34 08          	mov    %si,(%eax,%ecx,1)$/;"	l
+a702	obj.s	/^    a702:	83 c1 02             	add    $0x2,%ecx$/;"	l
+a705	obj.s	/^    a705:	83 e3 01             	and    $0x1,%ebx$/;"	l
+a708	obj.s	/^    a708:	85 db                	test   %ebx,%ebx$/;"	l
+a70a	obj.s	/^    a70a:	74 07                	je     a713 <loader_kernel+0x14d>$/;"	l
+a70c	obj.s	/^    a70c:	0f b6 14 0a          	movzbl (%edx,%ecx,1),%edx$/;"	l
+a710	obj.s	/^    a710:	88 14 08             	mov    %dl,(%eax,%ecx,1)$/;"	l
+a713	obj.s	/^    a713:	83 45 e4 01          	addl   $0x1,-0x1c(%ebp)$/;"	l
+a717	obj.s	/^    a717:	8b 55 e4             	mov    -0x1c(%ebp),%edx$/;"	l
+a71a	obj.s	/^    a71a:	8b 45 d8             	mov    -0x28(%ebp),%eax$/;"	l
+a71d	obj.s	/^    a71d:	8b 40 0c             	mov    0xc(%eax),%eax$/;"	l
+a720	obj.s	/^    a720:	39 c2                	cmp    %eax,%edx$/;"	l
+a722	obj.s	/^    a722:	0f 82 29 ff ff ff    	jb     a651 <loader_kernel+0x8b>$/;"	l
+a728	obj.s	/^    a728:	90                   	nop$/;"	l
+a729	obj.s	/^    a729:	83 c4 2c             	add    $0x2c,%esp$/;"	l
+a72c	obj.s	/^    a72c:	5b                   	pop    %ebx$/;"	l
+a72d	obj.s	/^    a72d:	5e                   	pop    %esi$/;"	l
+a72e	obj.s	/^    a72e:	5f                   	pop    %edi$/;"	l
+a72f	obj.s	/^    a72f:	5d                   	pop    %ebp$/;"	l
+a730	obj.s	/^    a730:	c3                   	ret    $/;"	l
+a731	obj.s	/^    a731:	66 90                	xchg   %ax,%ax$/;"	l
+a733	obj.s	/^    a733:	90                   	nop$/;"	l
+a734	obj.s	/^    a734:	55                   	push   %ebp$/;"	l
+a735	obj.s	/^    a735:	89 e5                	mov    %esp,%ebp$/;"	l
+a737	obj.s	/^    a737:	53                   	push   %ebx$/;"	l
+a738	obj.s	/^    a738:	50                   	push   %eax$/;"	l
+a739	obj.s	/^    a739:	53                   	push   %ebx$/;"	l
+a73a	obj.s	/^    a73a:	b8 01 00 00 00       	mov    $0x1,%eax$/;"	l
+a73f	obj.s	/^    a73f:	89 c3                	mov    %eax,%ebx$/;"	l
+a741	obj.s	/^    a741:	e4 21                	in     $0x21,%al$/;"	l
+a743	obj.s	/^    a743:	08 d8                	or     %bl,%al$/;"	l
+a745	obj.s	/^    a745:	e6 21                	out    %al,$0x21$/;"	l
+a747	obj.s	/^    a747:	b0 20                	mov    $0x20,%al$/;"	l
+a749	obj.s	/^    a749:	e6 20                	out    %al,$0x20$/;"	l
+a74b	obj.s	/^    a74b:	fb                   	sti    $/;"	l
+a74c	obj.s	/^    a74c:	a1 e0 db 00 00       	mov    0xdbe0,%eax$/;"	l
+a751	obj.s	/^    a751:	ba 00 00 00 00       	mov    $0x0,%edx$/;"	l
+a756	obj.s	/^    a756:	89 d3                	mov    %edx,%ebx$/;"	l
+a758	obj.s	/^    a758:	53                   	push   %ebx$/;"	l
+a759	obj.s	/^    a759:	ff d0                	call   *%eax$/;"	l
+a75b	obj.s	/^    a75b:	5b                   	pop    %ebx$/;"	l
+a75c	obj.s	/^    a75c:	b8 fe ff ff ff       	mov    $0xfffffffe,%eax$/;"	l
+a761	obj.s	/^    a761:	89 c3                	mov    %eax,%ebx$/;"	l
+a763	obj.s	/^    a763:	fa                   	cli    $/;"	l
+a764	obj.s	/^    a764:	e4 21                	in     $0x21,%al$/;"	l
+a766	obj.s	/^    a766:	20 d8                	and    %bl,%al$/;"	l
+a768	obj.s	/^    a768:	e6 21                	out    %al,$0x21$/;"	l
+a76a	obj.s	/^    a76a:	5b                   	pop    %ebx$/;"	l
+a76b	obj.s	/^    a76b:	58                   	pop    %eax$/;"	l
+a76c	obj.s	/^    a76c:	5b                   	pop    %ebx$/;"	l
+a76d	obj.s	/^    a76d:	5d                   	pop    %ebp$/;"	l
+a76e	obj.s	/^    a76e:	fb                   	sti    $/;"	l
+a76f	obj.s	/^    a76f:	cf                   	iret   $/;"	l
+a770	obj.s	/^    a770:	5b                   	pop    %ebx$/;"	l
+a771	obj.s	/^    a771:	5d                   	pop    %ebp$/;"	l
+a772	obj.s	/^    a772:	c3                   	ret    $/;"	l
+a773	obj.s	/^    a773:	55                   	push   %ebp$/;"	l
+a774	obj.s	/^    a774:	89 e5                	mov    %esp,%ebp$/;"	l
+a776	obj.s	/^    a776:	53                   	push   %ebx$/;"	l
+a777	obj.s	/^    a777:	50                   	push   %eax$/;"	l
+a778	obj.s	/^    a778:	53                   	push   %ebx$/;"	l
+a779	obj.s	/^    a779:	b8 00 40 00 00       	mov    $0x4000,%eax$/;"	l
+a77e	obj.s	/^    a77e:	89 c3                	mov    %eax,%ebx$/;"	l
+a780	obj.s	/^    a780:	e4 21                	in     $0x21,%al$/;"	l
+a782	obj.s	/^    a782:	08 d8                	or     %bl,%al$/;"	l
+a784	obj.s	/^    a784:	e6 21                	out    %al,$0x21$/;"	l
+a786	obj.s	/^    a786:	b0 20                	mov    $0x20,%al$/;"	l
+a788	obj.s	/^    a788:	e6 20                	out    %al,$0x20$/;"	l
+a78a	obj.s	/^    a78a:	fb                   	sti    $/;"	l
+a78b	obj.s	/^    a78b:	a1 18 dc 00 00       	mov    0xdc18,%eax$/;"	l
+a790	obj.s	/^    a790:	ba 0e 00 00 00       	mov    $0xe,%edx$/;"	l
+a795	obj.s	/^    a795:	89 d3                	mov    %edx,%ebx$/;"	l
+a797	obj.s	/^    a797:	53                   	push   %ebx$/;"	l
+a798	obj.s	/^    a798:	ff d0                	call   *%eax$/;"	l
+a79a	obj.s	/^    a79a:	5b                   	pop    %ebx$/;"	l
+a79b	obj.s	/^    a79b:	b8 ff bf ff ff       	mov    $0xffffbfff,%eax$/;"	l
+a7a0	obj.s	/^    a7a0:	89 c3                	mov    %eax,%ebx$/;"	l
+a7a2	obj.s	/^    a7a2:	fa                   	cli    $/;"	l
+a7a3	obj.s	/^    a7a3:	e4 21                	in     $0x21,%al$/;"	l
+a7a5	obj.s	/^    a7a5:	20 d8                	and    %bl,%al$/;"	l
+a7a7	obj.s	/^    a7a7:	e6 21                	out    %al,$0x21$/;"	l
+a7a9	obj.s	/^    a7a9:	5b                   	pop    %ebx$/;"	l
+a7aa	obj.s	/^    a7aa:	58                   	pop    %eax$/;"	l
+a7ab	obj.s	/^    a7ab:	5b                   	pop    %ebx$/;"	l
+a7ac	obj.s	/^    a7ac:	5d                   	pop    %ebp$/;"	l
+a7ad	obj.s	/^    a7ad:	fb                   	sti    $/;"	l
+a7ae	obj.s	/^    a7ae:	cf                   	iret   $/;"	l
+a7af	obj.s	/^    a7af:	5b                   	pop    %ebx$/;"	l
+a7b0	obj.s	/^    a7b0:	5d                   	pop    %ebp$/;"	l
+a7b1	obj.s	/^    a7b1:	c3                   	ret    $/;"	l
+bOdd	boot.s	/^bOdd:$/;"	l
+base_sector	fs.c	/^u32 base_sector = 0xb000;$/;"	v
+buf	hd.h	/^	char *buf;$/;"	m	struct:hd_status
+bufsize	hd.h	/^	int bufsize;$/;"	m	struct:hd_status
+cmdnow	hd.h	/^	u32 cmdnow;$/;"	m	struct:hd_status
+cmp_file_name	boot.s	/^cmp_file_name:$/;"	l
+code_start	boot.s	/^code_start:$/;"	l
+command	hd.h	/^	u8 command;$/;"	m	struct:hd_cmd
+device	hd.h	/^	u8 device;$/;"	m	struct:hd_cmd
+different_letter	boot.s	/^different_letter:								\/*如果字母不同*\/$/;"	l
+dir_ent_size	fs.h	/^	u32 dir_ent_size;$/;"	m	struct:super_block
+dir_entry	fs.h	/^struct dir_entry$/;"	s
+dis_nchar	display.c	/^int dis_nchar(const char *straddr, u8 color, int strlen, u32 row, u32 col)$/;"	f
+dis_str	display.c	/^int dis_str(const char *straddr, u8 color, u32 row, u32 col)$/;"	f
+enable_irq	8259a.c	/^void enable_irq(int irq)$/;"	f
+end_cylinder_low	fs.h	/^	u8 end_cylinder_low;			\/\/结束柱面号的低8位$/;"	m	struct:part_table
+end_head_num	fs.h	/^	u8 end_head_num;				\/\/结束磁头号$/;"	m	struct:part_table
+end_sector_num	fs.h	/^	u8 end_sector_num;				\/\/结束扇区号$/;"	m	struct:part_table
+f	Makefile	/^	dd if=$(IMG) of=$(DISK) bs=512 count=1 conv=notrunc$/;"	m
+features	hd.h	/^	u8 features;$/;"	m	struct:hd_cmd
+file_sector_cnt	fs.h	/^	u32	file_sector_cnt;$/;"	m	struct:inode
+file_size	fs.h	/^	u32 file_size;$/;"	m	struct:inode
+file_start_sect	fs.h	/^	u32 file_start_sect;$/;"	m	struct:inode
+find_file_in_root	fs.c	/^static struct dir_entry *find_file_in_root(const char *filename)$/;"	f	file:
+find_loader_file	boot.s	/^find_loader_file:								\/*如果找到了loader.bin文件*\/$/;"	l
+first_LBA	fs.h	/^	u32 first_LBA;					\/\/起始扇区的LBA$/;"	m	struct:part_table
+first_cylinder_low	fs.h	/^	u8 first_cylinder_low;			\/\/起始柱面号低8位$/;"	m	struct:part_table
+first_data_sector	fs.h	/^	u32 first_data_sector;$/;"	m	struct:super_block
+first_head_num	fs.h	/^	u8 first_head_num;				\/\/起始磁头号$/;"	m	struct:part_table
+first_sector_num	fs.h	/^	u8 first_sector_num;			\/\/起始扇区号$/;"	m	struct:part_table
+get_inode_array	fs.c	/^void get_inode_array(void)$/;"	f
+get_next_sector_in_FAT	boot.s	/^get_next_sector_in_FAT:			\/*该函数根据ax中的扇区号来寻找FAT表中下一个扇区的编号，返回之在ax中*\/$/;"	l
+get_part_information	fs.c	/^void get_part_information(void)$/;"	f
+get_root_area	fs.c	/^void get_root_area(void)$/;"	f
+get_sector	fs.c	/^static void get_sector(int LBA, char *buf)$/;"	f	file:
+get_super_block	fs.c	/^void get_super_block(void)$/;"	f
+handler	hd.h	/^	u32 *handler;$/;"	m	struct:hd_status
+hd_cmd	hd.h	/^struct hd_cmd$/;"	s
+hd_cmd_out	hd.c	/^static inline void hd_cmd_out(struct hd_cmd *cmd)$/;"	f	file:
+hd_handler	hd.c	/^static void hd_handler(void)$/;"	f	file:
+hd_identify	hd.c	/^void hd_identify(void)$/;"	f
+hd_read	hd.c	/^void hd_read(u32 LBA, int sectorcnt, char *buf)$/;"	f
+hd_status	hd.h	/^struct hd_status$/;"	s
+hd_write	hd.c	/^void hd_write(u32 LBA, int sectorcnt, char *buf)$/;"	f
+hdbuf	hd.h	/^	char hdbuf[1024];$/;"	m	struct:hd_status
+inb	8259a.c	/^static inline u8 inb(u16 port)$/;"	f	file:
+inb	hd.c	/^static inline u8 inb(u16 port)$/;"	f	file:
+inb_pic	8259a.c	/^static inline unsigned char inb_pic(unsigned int port)$/;"	f	file:
+inb_pic	hd.c	/^static inline unsigned char inb_pic(unsigned int port)$/;"	f	file:
+init_hd	hd.c	/^void init_hd(void)$/;"	f
+init_idt	init_idt.c	/^void init_idt(void)$/;"	f
+init_timer	timer.c	/^void init_timer(void)$/;"	f
+inl	8259a.c	/^static inline u32 inl(u32 port)$/;"	f	file:
+inode	fs.h	/^struct inode$/;"	s
+inode_array	fs.c	/^struct inode inode_array[MAX_INODE_CNT];$/;"	v	typeref:struct:inode
+inode_array_start	fs.h	/^	u32 inode_array_start;$/;"	m	struct:super_block
+inode_cnt	fs.h	/^	u32 inode_cnt;$/;"	m	struct:super_block
+inode_map_sectors	fs.h	/^	u32 inode_map_sectors;$/;"	m	struct:super_block
+inode_map_start	fs.h	/^	u32 inode_map_start;$/;"	m	struct:super_block
+inode_num	fs.h	/^	u32 inode_num;$/;"	m	struct:dir_entry
+inode_sectors	fs.h	/^	u32 inode_sectors;$/;"	m	struct:super_block
+inode_size	fs.h	/^	u32 inode_size;$/;"	m	struct:super_block
+interrupt	interrupt.c	/^u32 *interrupt[16];$/;"	v
+interrupt_master	interrupt.c	6;"	d	file:
+inw	8259a.c	/^static inline u16 inw(u16 port)$/;"	f	file:
+io_delay	8259a.c	/^static inline void io_delay(void)$/;"	f	file:
+io_delay	hd.c	/^static inline void io_delay(void)$/;"	f	file:
+irq00_handler	interrupt.c	/^void irq00_handler(void)$/;"	f
+irq14_handler	interrupt.c	/^void irq14_handler (void)$/;"	f
+keep_load_the_loader	boot.s	/^keep_load_the_loader:$/;"	l
+keep_reading	boot.s	/^keep_reading:$/;"	l
+label_even	boot.s	/^label_even:$/;"	l
+label_even2	boot.s	/^label_even2:$/;"	l
+load_loader_compelet	boot.s	/^load_loader_compelet:							\/*loader.bin文件加载完成*\/$/;"	l
+loader	obj.s	/^loader:     file format elf32-i386$/;"	l
+loader_kernel	fs.c	/^void loader_kernel(void)$/;"	f
+loader_start	loader.s	/^loader_start:$/;"	l
+logical	fs.c	/^struct part_table primary[PRIMARY_MAX_CNT], logical[LOGIC_MAX_CNT];$/;"	v	typeref:struct:
+loop1	boot.s	/^loop1:$/;"	l
+loop1	loader.s	/^loop1:$/;"	l
+magic	fs.h	/^	u32	magic;$/;"	m	struct:super_block
+make_fs	fs.c	/^int make_fs(void)$/;"	f
+mode	fs.h	/^	u32 mode;$/;"	m	struct:inode
+name	fs.h	/^	char name[MAX_FILENAME_LEN];$/;"	m	struct:dir_entry
+no_loader_in_root_dir	boot.s	/^no_loader_in_root_dir:							\/*如果整个根目录中都没有找到loader.bin文件则打印提示语句*\/$/;"	l
+outb	8259a.c	/^static inline void outb(u8 v, u16 port)$/;"	f	file:
+outb	hd.c	/^static inline void outb(u8 v, u16 port)$/;"	f	file:
+outb_pic	8259a.c	/^static inline void outb_pic(unsigned char value, unsigned int port)$/;"	f	file:
+outb_pic	hd.c	/^static inline void outb_pic(unsigned char value, unsigned int port)$/;"	f	file:
+outl	8259a.c	/^static inline void outl(u32 v, u16 port)$/;"	f	file:
+outw	8259a.c	/^static inline void outw(u16 v, u16 port)$/;"	f	file:
+part_table	fs.h	/^struct part_table$/;"	s
+port	hd.h	/^	int port;$/;"	m	struct:hd_status
+port_read	hd.c	/^static inline void port_read(char *buf, u16 port, int size)$/;"	f	file:
+port_write	hd.c	/^static inline void port_write(char *buf, u16 port, int size)$/;"	f	file:
+primary	fs.c	/^struct part_table primary[PRIMARY_MAX_CNT], logical[LOGIC_MAX_CNT];$/;"	v	typeref:struct:part_table
+print_real	boot.s	/^print_real:		\/*用于在实模式下显示字符串cx: strlen	si: straddr*\/$/;"	l
+print_real	loader.s	/^print_real:$/;"	l
+read_sector	boot.s	/^read_sector:					\/*读扇区	ax：扇区号	bx：偏移地址	cl：要读的扇区数*\/$/;"	l
+reset_floppy	boot.s	/^reset_floppy:									\/*复位软驱*\/$/;"	l
+root_area	fs.c	/^struct dir_entry root_area[MAX_INODE_CNT];$/;"	v	typeref:struct:dir_entry
+root_inode	fs.h	/^	u32 root_inode;$/;"	m	struct:super_block
+root_sectors	fs.h	/^	u32 root_sectors;$/;"	m	struct:super_block
+root_start	fs.h	/^	u32 root_start;$/;"	m	struct:super_block
+same_letter_go_on	boot.s	/^same_letter_go_on:								\/*如果字母相同则继续进行下一个字母的比较*\/$/;"	l
+search_loader_in_root_dir	boot.s	/^search_loader_in_root_dir:						\/*在根目录中寻找loader.bin*\/$/;"	l
+search_loader_in_sector	boot.s	/^search_loader_in_sector:						\/*对比文件名的函数*\/$/;"	l
+sector_cnt	fs.h	/^	u32 sector_cnt;					\/\/扇区数$/;"	m	struct:part_table
+sector_cnt	fs.h	/^	u32 sector_cnt;$/;"	m	struct:super_block
+sector_count	hd.h	/^	u8 sector_count;$/;"	m	struct:hd_cmd
+sector_map_sectors	fs.h	/^	u32 sector_map_sectors;$/;"	m	struct:super_block
+sector_map_start	fs.h	/^	u32 sector_map_start;$/;"	m	struct:super_block
+sectorcnt	hd.h	/^	int sectorcnt;$/;"	m	struct:hd_status
+serch_next_sector	boot.s	/^serch_next_sector:								\/*如果都整个扇区都找不到，则在下一个扇区继续寻找*\/$/;"	l
+set_intr_gate	init_idt.c	/^inline void set_intr_gate(int IRQ, u32 *handler)$/;"	f
+status	fs.h	/^	u8 status;						\/\/分区状态$/;"	m	struct:part_table
+super_block	fs.c	/^struct super_block super_block;$/;"	v	typeref:struct:super_block
+super_block	fs.h	/^struct super_block$/;"	s
+system_id	fs.h	/^	u8 system_id;					\/\/分区类型$/;"	m	struct:part_table
+ticks	timer.c	/^static char ticks = 'A';$/;"	v	file:
+timer_handler	timer.c	/^static void timer_handler(void)$/;"	f	file:
+tmp_buf	fs.c	/^char tmp_buf[SECTOR_SIZE];$/;"	v

@@ -1,6 +1,8 @@
+#include <sys/idt.h>
 #include "desc/gdt.h"
 #include "asm.h"
 #include "8259a/8259a.h"
+#include "interrupt/timer.h"
 
 void kernel_start(void)
 {
@@ -18,6 +20,16 @@ void start_kernel(void)
 
 	/*屏蔽所有外部中断*/
 	disable_irqs();
-	sti();
+
+	/*加载idt*/
+	load_idt();
+
+	/*初始化idt中异常处理函数*/
+
+
+	/*初始化时钟中断*/
+	init_timer();
+
+	asm("ljmp $0x80, $0x0");
 	for(;;);
 }
