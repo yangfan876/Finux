@@ -1,13 +1,15 @@
 #include <type.h>
 #include "../8259a/8259a.h"
 
-/*中断函数入口地址数组*/
-u32 *interrupt[16];
 
 #define interrupt_master(irq)			\
 {										\
-		asm("pushl %eax\n\t"				\
-			"pushl %ebx\n\t");			\
+		asm("pushal\n\t"				\
+			"pushl %ds\n\t"				\
+			"pushl %es\n\t"				\
+			"pushl %fs\n\t"				\
+			"pushl %gs\n\t"				\
+			);							\
 										\
 		asm("inb $0x21\n\t"				\
 			"orb %%bl, %%al\n\t"		\
@@ -30,10 +32,11 @@ u32 *interrupt[16];
 			"outb %%al, $0x21\n\t"		\
 			:							\
 			:"b"(~(1<<irq)));				\
-		asm("popl %ebx\n\t"				\
-			"popl %eax\n\t"				\
-			"popl %ebx\n\t"				\
-			"popl %ebp\n\t"				\
+		asm("popl %gs\n\t"				\
+			"popl %fs\n\t"				\
+			"popl %es\n\t"				\
+			"popl %ds\n\t"				\
+			"popal\n\t"					\
 			"sti\n\t"					\
 			"iret\n\t");				\
 }

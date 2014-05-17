@@ -48,6 +48,4 @@ void Cstart(void)
 
 	/*跳入内核代码*/
 	asm("jmp %%eax"::"a"(KERNEL_LOAD_ADDRESS));
-//	asm("jmp %%eax"::"a"(0x200006));
-
 }

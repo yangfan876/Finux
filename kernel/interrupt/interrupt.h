@@ -1,3 +1,7 @@
+/*中断处理函数入口地址数组*/
+u32 *interrupt[16];
+
+
 void irq00_handler(void);
 void irq01_handler(void);
 void irq02_handler(void);

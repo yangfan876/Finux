@@ -23,7 +23,6 @@ static void timer_handler(void)
 
 }
 
-extern u32 *interrupt[16];
 
 void init_timer(void)
 {

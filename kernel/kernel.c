@@ -3,6 +3,7 @@
 #include "asm.h"
 #include "8259a/8259a.h"
 #include "interrupt/timer.h"
+#include "thread/init.h"
 
 void kernel_start(void)
 {
@@ -18,18 +19,21 @@ void start_kernel(void)
 	asm("movl $0x1fffff, %esp\n\t"
 		"movl %esp, %ebp\n\t");
 
+	load_tss();
+
 	/*屏蔽所有外部中断*/
 	disable_irqs();
 
 	/*加载idt*/
 	load_idt();
 
-	/*初始化idt中异常处理函数*/
-
-
 	/*初始化时钟中断*/
 	init_timer();
 
-	asm("ljmp $0x80, $0x0");
-	for(;;);
+	/*初始化init线程，并跳转执行*/
+	creat_init();
+
+	/*初始化完init线程将不会在执行到这里，如果执行下面的指令，
+	 * 将跳转到一个不存在的段，产生一个通用异常。*/
+	asm("jmp $0x80, $0x0\n\t");
 }
