@@ -2,6 +2,8 @@
 
 .global irq00_handler
 
+.extern current_thread
+
 irq00_handler:
 	pushal
 	pushl %ds
@@ -9,12 +11,17 @@ irq00_handler:
 	pushl %fs
 	pushl %gs
 
-	incb %gs:(0)
+	movl (current_thread), %eax
+
+	movl %esp, (%eax)
+
+	incb %gs:(24*160)
 
 	call EOI_master
-	push %esp
-	call set_tss_esp
-	addl $0x4, %esp
+	call timer_handler
+
+	movl (current_thread), %eax
+	movl (%eax), %esp
 
 	popl %gs
 	popl %fs

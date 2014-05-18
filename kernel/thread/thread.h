@@ -57,9 +57,9 @@ struct thread_union
 /*线程结构体*/
 struct thread
 {
+	u32 esp;
 	u32 pid;
 	u32 function;
 	char thread_name[16];
 	u32 *stack;
-	u32 esp;
 }__attribute__((aligned(PAGE_SIZE)));

@@ -31,8 +31,8 @@ void start_kernel(void)
 	init_timer();
 
 	/*初始化init线程，并跳转执行*/
+	creat_testA();
 	creat_init();
-
 	/*初始化完init线程将不会在执行到这里，如果执行下面的指令，
 	 * 将跳转到一个不存在的段，产生一个通用异常。*/
 	asm("jmp $0x80, $0x0\n\t");

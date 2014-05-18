@@ -3,8 +3,9 @@
 #include "../8259a/8259a.h"
 #include "timer.h"
 #include "interrupt.h"
+#include "../thread/thread.h"
 
-static char ticks = 'A';
+/*static char ticks = 'A';
 
 static void timer_handler(void)
 {
@@ -21,6 +22,31 @@ static void timer_handler(void)
 	ticks ++;
 	return;
 
+}
+*/
+
+extern struct thread init_struct;
+extern struct thread_union init_stack;
+extern struct thread testA_struct;
+extern struct thread_union testA_stack;
+
+extern struct thread *current_thread;
+
+static u32 ticks = 1;
+
+void timer_handler(void)
+{
+	ticks++;
+
+	if (ticks % 20 == 0)
+	{
+		if (current_thread == &testA_struct)
+		  current_thread = &init_struct;
+		else
+		  current_thread = &testA_struct;
+	}
+
+	return;
 }
 
 
