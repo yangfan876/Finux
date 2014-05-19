@@ -27,7 +27,6 @@ struct registers
 	u32 edx;
 	u32 ecx;
 	u32 eax;
-//	u32 retaddr;
 	u32 eip;
 	u32 cs;
 	u32 esp;
@@ -52,7 +51,7 @@ struct thread_union
 	u8 thread_stack[KERNEL_STACK_SIZE];
 	struct registers regs;
 	struct thread *thread_struct;
-};
+}__attribute__((aligned(KERNEL_STACK_SIZE)));
 
 /*线程结构体*/
 struct thread

@@ -293,12 +293,15 @@ static struct dir_entry *find_file_in_root(const char *filename)
 	return (struct dir_entry *)0x0;
 }
 
+extern int DetectCount;
+
 /*加载kernel*/
 void loader_kernel(void)
 {
 	struct dir_entry *kernel_entry;
 	struct inode *kernel_inode;
 	char *kernel_address = (char *)KERNEL_LOAD_ADDRESS;
+	struct kernel_info kernel_info;
 	int i;
 
 	kernel_entry = find_file_in_root("vmFinux.core");
@@ -316,5 +319,12 @@ void loader_kernel(void)
 		memcpy(kernel_address + i * sizeof(tmp_buf), \
 					tmp_buf, sizeof(tmp_buf));
 	}
+
+	kernel_info.size = kernel_inode->file_size;
+	kernel_info.start = KERNEL_LOAD_ADDRESS;
+	kernel_info.memory_map_count = DetectCount;
+
+	memcpy((void *)KERNEL_INFO_ADDRESS, (void *)&kernel_info, sizeof(kernel_info));
+
 	return;
 }

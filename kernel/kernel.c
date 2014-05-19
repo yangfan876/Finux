@@ -4,6 +4,8 @@
 #include "8259a/8259a.h"
 #include "interrupt/timer.h"
 #include "thread/init.h"
+#include "mm/mm.h"
+#include "mm/page.h"
 
 void kernel_start(void)
 {
@@ -19,8 +21,13 @@ void start_kernel(void)
 	asm("movl $0x1fffff, %esp\n\t"
 		"movl %esp, %ebp\n\t");
 
+	/*加载TSS*/
 	load_tss();
 
+	/*获取loader探测的内存信息，以及kernel信息*/
+	get_memory_info();
+	/*设置页表，并开启分页机制*/
+	set_page();
 	/*屏蔽所有外部中断*/
 	disable_irqs();
 

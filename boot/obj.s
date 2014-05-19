@@ -152,7 +152,7 @@ Disassembly of section .text:
     9119:	00 
     911a:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)
     9121:	00 
-    9122:	c7 04 24 b4 a7 00 00 	movl   $0xa7b4,(%esp)
+    9122:	c7 04 24 e4 a7 00 00 	movl   $0xa7e4,(%esp)
     9129:	e8 8e 01 00 00       	call   92bc <dis_str>
     912e:	e8 28 03 00 00       	call   945b <Init_8259A>
     9133:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
@@ -161,7 +161,7 @@ Disassembly of section .text:
     9142:	00 
     9143:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)
     914a:	00 
-    914b:	c7 04 24 c9 a7 00 00 	movl   $0xa7c9,(%esp)
+    914b:	c7 04 24 f9 a7 00 00 	movl   $0xa7f9,(%esp)
     9152:	e8 65 01 00 00       	call   92bc <dis_str>
     9157:	e8 24 05 00 00       	call   9680 <init_idt>
     915c:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
@@ -170,7 +170,7 @@ Disassembly of section .text:
     916b:	00 
     916c:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)
     9173:	00 
-    9174:	c7 04 24 dc a7 00 00 	movl   $0xa7dc,(%esp)
+    9174:	c7 04 24 0c a8 00 00 	movl   $0xa80c,(%esp)
     917b:	e8 3c 01 00 00       	call   92bc <dis_str>
     9180:	e8 20 0a 00 00       	call   9ba5 <init_timer>
     9185:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
@@ -179,7 +179,7 @@ Disassembly of section .text:
     9194:	00 
     9195:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)
     919c:	00 
-    919d:	c7 04 24 f1 a7 00 00 	movl   $0xa7f1,(%esp)
+    919d:	c7 04 24 21 a8 00 00 	movl   $0xa821,(%esp)
     91a4:	e8 13 01 00 00       	call   92bc <dis_str>
     91a9:	e8 89 09 00 00       	call   9b37 <init_hd>
     91ae:	e8 51 07 00 00       	call   9904 <hd_identify>
@@ -193,7 +193,7 @@ Disassembly of section .text:
     91d0:	00 
     91d1:	c7 44 24 04 09 00 00 	movl   $0x9,0x4(%esp)
     91d8:	00 
-    91d9:	c7 04 24 04 a8 00 00 	movl   $0xa804,(%esp)
+    91d9:	c7 04 24 34 a8 00 00 	movl   $0xa834,(%esp)
     91e0:	e8 d7 00 00 00       	call   92bc <dis_str>
     91e5:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
     91ec:	00 
@@ -201,7 +201,7 @@ Disassembly of section .text:
     91f4:	00 
     91f5:	c7 44 24 04 0a 00 00 	movl   $0xa,0x4(%esp)
     91fc:	00 
-    91fd:	c7 04 24 0c a8 00 00 	movl   $0xa80c,(%esp)
+    91fd:	c7 04 24 3c a8 00 00 	movl   $0xa83c,(%esp)
     9204:	e8 b3 00 00 00       	call   92bc <dis_str>
     9209:	eb fe                	jmp    9209 <Cstart+0x105>
     920b:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
@@ -210,7 +210,7 @@ Disassembly of section .text:
     921a:	00 
     921b:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)
     9222:	00 
-    9223:	c7 04 24 4d a8 00 00 	movl   $0xa84d,(%esp)
+    9223:	c7 04 24 7d a8 00 00 	movl   $0xa87d,(%esp)
     922a:	e8 8d 00 00 00       	call   92bc <dis_str>
     922f:	e8 a1 11 00 00       	call   a3d5 <get_super_block>
     9234:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
@@ -219,7 +219,7 @@ Disassembly of section .text:
     9243:	00 
     9244:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)
     924b:	00 
-    924c:	c7 04 24 60 a8 00 00 	movl   $0xa860,(%esp)
+    924c:	c7 04 24 90 a8 00 00 	movl   $0xa890,(%esp)
     9253:	e8 64 00 00 00       	call   92bc <dis_str>
     9258:	e8 b9 12 00 00       	call   a516 <get_inode_array>
     925d:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
@@ -228,7 +228,7 @@ Disassembly of section .text:
     926c:	00 
     926d:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)
     9274:	00 
-    9275:	c7 04 24 73 a8 00 00 	movl   $0xa873,(%esp)
+    9275:	c7 04 24 a3 a8 00 00 	movl   $0xa8a3,(%esp)
     927c:	e8 3b 00 00 00       	call   92bc <dis_str>
     9281:	e8 06 12 00 00       	call   a48c <get_root_area>
     9286:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
@@ -237,7 +237,7 @@ Disassembly of section .text:
     9295:	00 
     9296:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)
     929d:	00 
-    929e:	c7 04 24 84 a8 00 00 	movl   $0xa884,(%esp)
+    929e:	c7 04 24 b4 a8 00 00 	movl   $0xa8b4,(%esp)
     92a5:	e8 12 00 00 00       	call   92bc <dis_str>
     92aa:	e8 17 13 00 00       	call   a5c6 <loader_kernel>
     92af:	fa                   	cli    
@@ -996,7 +996,7 @@ Disassembly of section .text:
     9b3a:	83 ec 18             	sub    $0x18,%esp
     9b3d:	c7 05 18 dc 00 00 b1 	movl   $0x98b1,0xdc18
     9b44:	98 00 00 
-    9b47:	c7 44 24 04 73 a7 00 	movl   $0xa773,0x4(%esp)
+    9b47:	c7 44 24 04 a3 a7 00 	movl   $0xa7a3,0x4(%esp)
     9b4e:	00 
     9b4f:	c7 04 24 0e 00 00 00 	movl   $0xe,(%esp)
     9b56:	e8 35 fb ff ff       	call   9690 <set_intr_gate>
@@ -1032,7 +1032,7 @@ Disassembly of section .text:
     9ba8:	83 ec 18             	sub    $0x18,%esp
     9bab:	c7 05 e0 db 00 00 6c 	movl   $0x9b6c,0xdbe0
     9bb2:	9b 00 00 
-    9bb5:	c7 44 24 04 34 a7 00 	movl   $0xa734,0x4(%esp)
+    9bb5:	c7 44 24 04 64 a7 00 	movl   $0xa764,0x4(%esp)
     9bbc:	00 
     9bbd:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
     9bc4:	e8 c7 fa ff ff       	call   9690 <set_intr_gate>
@@ -1340,7 +1340,7 @@ Disassembly of section .text:
     9f79:	00 
     9f7a:	c7 44 24 04 09 00 00 	movl   $0x9,0x4(%esp)
     9f81:	00 
-    9f82:	c7 04 24 98 a8 00 00 	movl   $0xa898,(%esp)
+    9f82:	c7 04 24 c8 a8 00 00 	movl   $0xa8c8,(%esp)
     9f89:	e8 2e f3 ff ff       	call   92bc <dis_str>
     9f8e:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
     9f95:	00 
@@ -1348,7 +1348,7 @@ Disassembly of section .text:
     9f9d:	00 
     9f9e:	c7 44 24 04 0a 00 00 	movl   $0xa,0x4(%esp)
     9fa5:	00 
-    9fa6:	c7 04 24 a0 a8 00 00 	movl   $0xa8a0,(%esp)
+    9fa6:	c7 04 24 d0 a8 00 00 	movl   $0xa8d0,(%esp)
     9fad:	e8 0a f3 ff ff       	call   92bc <dis_str>
     9fb2:	eb fe                	jmp    9fb2 <make_fs+0x121>
     9fb4:	8b 45 f4             	mov    -0xc(%ebp),%eax
@@ -1643,7 +1643,7 @@ Disassembly of section .text:
     a4a9:	00 
     a4aa:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)
     a4b1:	00 
-    a4b2:	c7 04 24 cc a8 00 00 	movl   $0xa8cc,(%esp)
+    a4b2:	c7 04 24 fc a8 00 00 	movl   $0xa8fc,(%esp)
     a4b9:	e8 fe ed ff ff       	call   92bc <dis_str>
     a4be:	8b 15 08 cf 00 00    	mov    0xcf08,%edx
     a4c4:	8b 45 f4             	mov    -0xc(%ebp),%eax
@@ -1736,9 +1736,9 @@ Disassembly of section .text:
     a5c9:	57                   	push   %edi
     a5ca:	56                   	push   %esi
     a5cb:	53                   	push   %ebx
-    a5cc:	83 ec 2c             	sub    $0x2c,%esp
+    a5cc:	83 ec 3c             	sub    $0x3c,%esp
     a5cf:	c7 45 e0 00 00 20 00 	movl   $0x200000,-0x20(%ebp)
-    a5d6:	c7 04 24 ce a8 00 00 	movl   $0xa8ce,(%esp)
+    a5d6:	c7 04 24 fe a8 00 00 	movl   $0xa8fe,(%esp)
     a5dd:	e8 96 ff ff ff       	call   a578 <find_file_in_root>
     a5e2:	89 45 dc             	mov    %eax,-0x24(%ebp)
     a5e5:	83 7d dc 00          	cmpl   $0x0,-0x24(%ebp)
@@ -1749,7 +1749,7 @@ Disassembly of section .text:
     a5fa:	00 
     a5fb:	c7 44 24 04 09 00 00 	movl   $0x9,0x4(%esp)
     a602:	00 
-    a603:	c7 04 24 98 a8 00 00 	movl   $0xa898,(%esp)
+    a603:	c7 04 24 c8 a8 00 00 	movl   $0xa8c8,(%esp)
     a60a:	e8 ad ec ff ff       	call   92bc <dis_str>
     a60f:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
     a616:	00 
@@ -1757,7 +1757,7 @@ Disassembly of section .text:
     a61e:	00 
     a61f:	c7 44 24 04 0a 00 00 	movl   $0xa,0x4(%esp)
     a626:	00 
-    a627:	c7 04 24 db a8 00 00 	movl   $0xa8db,(%esp)
+    a627:	c7 04 24 0b a9 00 00 	movl   $0xa90b,(%esp)
     a62e:	e8 89 ec ff ff       	call   92bc <dis_str>
     a633:	eb fe                	jmp    a633 <loader_kernel+0x6d>
     a635:	8b 45 dc             	mov    -0x24(%ebp),%eax
@@ -1783,7 +1783,7 @@ Disassembly of section .text:
     a682:	00 
     a683:	c7 44 24 04 0c 00 00 	movl   $0xc,0x4(%esp)
     a68a:	00 
-    a68b:	c7 04 24 cc a8 00 00 	movl   $0xa8cc,(%esp)
+    a68b:	c7 04 24 fc a8 00 00 	movl   $0xa8fc,(%esp)
     a692:	e8 25 ec ff ff       	call   92bc <dis_str>
     a697:	8b 45 e4             	mov    -0x1c(%ebp),%eax
     a69a:	c1 e0 09             	shl    $0x9,%eax
@@ -1836,84 +1836,96 @@ Disassembly of section .text:
     a71d:	8b 40 0c             	mov    0xc(%eax),%eax
     a720:	39 c2                	cmp    %eax,%edx
     a722:	0f 82 29 ff ff ff    	jb     a651 <loader_kernel+0x8b>
-    a728:	90                   	nop
-    a729:	83 c4 2c             	add    $0x2c,%esp
-    a72c:	5b                   	pop    %ebx
-    a72d:	5e                   	pop    %esi
-    a72e:	5f                   	pop    %edi
-    a72f:	5d                   	pop    %ebp
-    a730:	c3                   	ret    
-    a731:	66 90                	xchg   %ax,%ax
-    a733:	90                   	nop
+    a728:	8b 45 d8             	mov    -0x28(%ebp),%eax
+    a72b:	8b 40 04             	mov    0x4(%eax),%eax
+    a72e:	89 45 cc             	mov    %eax,-0x34(%ebp)
+    a731:	c7 45 d0 00 00 20 00 	movl   $0x200000,-0x30(%ebp)
+    a738:	a1 a0 90 00 00       	mov    0x90a0,%eax
+    a73d:	89 45 d4             	mov    %eax,-0x2c(%ebp)
+    a740:	8b 45 cc             	mov    -0x34(%ebp),%eax
+    a743:	a3 00 00 10 00       	mov    %eax,0x100000
+    a748:	8b 45 d0             	mov    -0x30(%ebp),%eax
+    a74b:	a3 04 00 10 00       	mov    %eax,0x100004
+    a750:	8b 45 d4             	mov    -0x2c(%ebp),%eax
+    a753:	a3 08 00 10 00       	mov    %eax,0x100008
+    a758:	90                   	nop
+    a759:	83 c4 3c             	add    $0x3c,%esp
+    a75c:	5b                   	pop    %ebx
+    a75d:	5e                   	pop    %esi
+    a75e:	5f                   	pop    %edi
+    a75f:	5d                   	pop    %ebp
+    a760:	c3                   	ret    
+    a761:	66 90                	xchg   %ax,%ax
+    a763:	90                   	nop
 
-0000a734 <irq00_handler>:
-    a734:	55                   	push   %ebp
-    a735:	89 e5                	mov    %esp,%ebp
-    a737:	53                   	push   %ebx
-    a738:	50                   	push   %eax
-    a739:	53                   	push   %ebx
-    a73a:	b8 01 00 00 00       	mov    $0x1,%eax
-    a73f:	89 c3                	mov    %eax,%ebx
-    a741:	e4 21                	in     $0x21,%al
-    a743:	08 d8                	or     %bl,%al
-    a745:	e6 21                	out    %al,$0x21
-    a747:	b0 20                	mov    $0x20,%al
-    a749:	e6 20                	out    %al,$0x20
-    a74b:	fb                   	sti    
-    a74c:	a1 e0 db 00 00       	mov    0xdbe0,%eax
-    a751:	ba 00 00 00 00       	mov    $0x0,%edx
-    a756:	89 d3                	mov    %edx,%ebx
-    a758:	53                   	push   %ebx
-    a759:	ff d0                	call   *%eax
-    a75b:	5b                   	pop    %ebx
-    a75c:	b8 fe ff ff ff       	mov    $0xfffffffe,%eax
-    a761:	89 c3                	mov    %eax,%ebx
-    a763:	fa                   	cli    
-    a764:	e4 21                	in     $0x21,%al
-    a766:	20 d8                	and    %bl,%al
-    a768:	e6 21                	out    %al,$0x21
-    a76a:	5b                   	pop    %ebx
-    a76b:	58                   	pop    %eax
-    a76c:	5b                   	pop    %ebx
-    a76d:	5d                   	pop    %ebp
-    a76e:	fb                   	sti    
-    a76f:	cf                   	iret   
-    a770:	5b                   	pop    %ebx
-    a771:	5d                   	pop    %ebp
-    a772:	c3                   	ret    
-
-0000a773 <irq14_handler>:
-    a773:	55                   	push   %ebp
-    a774:	89 e5                	mov    %esp,%ebp
-    a776:	53                   	push   %ebx
-    a777:	50                   	push   %eax
-    a778:	53                   	push   %ebx
-    a779:	b8 00 40 00 00       	mov    $0x4000,%eax
-    a77e:	89 c3                	mov    %eax,%ebx
-    a780:	e4 21                	in     $0x21,%al
-    a782:	08 d8                	or     %bl,%al
-    a784:	e6 21                	out    %al,$0x21
-    a786:	b0 20                	mov    $0x20,%al
-    a788:	e6 20                	out    %al,$0x20
-    a78a:	fb                   	sti    
-    a78b:	a1 18 dc 00 00       	mov    0xdc18,%eax
-    a790:	ba 0e 00 00 00       	mov    $0xe,%edx
-    a795:	89 d3                	mov    %edx,%ebx
-    a797:	53                   	push   %ebx
-    a798:	ff d0                	call   *%eax
+0000a764 <irq00_handler>:
+    a764:	55                   	push   %ebp
+    a765:	89 e5                	mov    %esp,%ebp
+    a767:	53                   	push   %ebx
+    a768:	50                   	push   %eax
+    a769:	53                   	push   %ebx
+    a76a:	b8 01 00 00 00       	mov    $0x1,%eax
+    a76f:	89 c3                	mov    %eax,%ebx
+    a771:	e4 21                	in     $0x21,%al
+    a773:	08 d8                	or     %bl,%al
+    a775:	e6 21                	out    %al,$0x21
+    a777:	b0 20                	mov    $0x20,%al
+    a779:	e6 20                	out    %al,$0x20
+    a77b:	fb                   	sti    
+    a77c:	a1 e0 db 00 00       	mov    0xdbe0,%eax
+    a781:	ba 00 00 00 00       	mov    $0x0,%edx
+    a786:	89 d3                	mov    %edx,%ebx
+    a788:	53                   	push   %ebx
+    a789:	ff d0                	call   *%eax
+    a78b:	5b                   	pop    %ebx
+    a78c:	b8 fe ff ff ff       	mov    $0xfffffffe,%eax
+    a791:	89 c3                	mov    %eax,%ebx
+    a793:	fa                   	cli    
+    a794:	e4 21                	in     $0x21,%al
+    a796:	20 d8                	and    %bl,%al
+    a798:	e6 21                	out    %al,$0x21
     a79a:	5b                   	pop    %ebx
-    a79b:	b8 ff bf ff ff       	mov    $0xffffbfff,%eax
-    a7a0:	89 c3                	mov    %eax,%ebx
-    a7a2:	fa                   	cli    
-    a7a3:	e4 21                	in     $0x21,%al
-    a7a5:	20 d8                	and    %bl,%al
-    a7a7:	e6 21                	out    %al,$0x21
-    a7a9:	5b                   	pop    %ebx
-    a7aa:	58                   	pop    %eax
-    a7ab:	5b                   	pop    %ebx
-    a7ac:	5d                   	pop    %ebp
-    a7ad:	fb                   	sti    
-    a7ae:	cf                   	iret   
-    a7af:	5b                   	pop    %ebx
-    a7b0:	5d                   	pop    %ebp
-    a7b1:	c3                   	ret    
+    a79b:	58                   	pop    %eax
+    a79c:	5b                   	pop    %ebx
+    a79d:	5d                   	pop    %ebp
+    a79e:	fb                   	sti    
+    a79f:	cf                   	iret   
+    a7a0:	5b                   	pop    %ebx
+    a7a1:	5d                   	pop    %ebp
+    a7a2:	c3                   	ret    
+
+0000a7a3 <irq14_handler>:
+    a7a3:	55                   	push   %ebp
+    a7a4:	89 e5                	mov    %esp,%ebp
+    a7a6:	53                   	push   %ebx
+    a7a7:	50                   	push   %eax
+    a7a8:	53                   	push   %ebx
+    a7a9:	b8 00 40 00 00       	mov    $0x4000,%eax
+    a7ae:	89 c3                	mov    %eax,%ebx
+    a7b0:	e4 21                	in     $0x21,%al
+    a7b2:	08 d8                	or     %bl,%al
+    a7b4:	e6 21                	out    %al,$0x21
+    a7b6:	b0 20                	mov    $0x20,%al
+    a7b8:	e6 20                	out    %al,$0x20
+    a7ba:	fb                   	sti    
+    a7bb:	a1 18 dc 00 00       	mov    0xdc18,%eax
+    a7c0:	ba 0e 00 00 00       	mov    $0xe,%edx
+    a7c5:	89 d3                	mov    %edx,%ebx
+    a7c7:	53                   	push   %ebx
+    a7c8:	ff d0                	call   *%eax
+    a7ca:	5b                   	pop    %ebx
+    a7cb:	b8 ff bf ff ff       	mov    $0xffffbfff,%eax
+    a7d0:	89 c3                	mov    %eax,%ebx
+    a7d2:	fa                   	cli    
+    a7d3:	e4 21                	in     $0x21,%al
+    a7d5:	20 d8                	and    %bl,%al
+    a7d7:	e6 21                	out    %al,$0x21
+    a7d9:	5b                   	pop    %ebx
+    a7da:	58                   	pop    %eax
+    a7db:	5b                   	pop    %ebx
+    a7dc:	5d                   	pop    %ebp
+    a7dd:	fb                   	sti    
+    a7de:	cf                   	iret   
+    a7df:	5b                   	pop    %ebx
+    a7e0:	5d                   	pop    %ebp
+    a7e1:	c3                   	ret    

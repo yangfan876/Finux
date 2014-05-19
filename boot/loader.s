@@ -102,7 +102,7 @@ CODE32_START:
 	movw $0x18, %ax
 	movw %ax, %gs
 	movl $0x7bff, %esp	/*和boot.s中一样，这里将栈基址设为0x7bff,*/
-						/*我们的栈空间大概有不到30Kb，所以要省着点用阿....*/ 
+						/*我们的栈空间大概有不到30Kb，所以要省着点用阿....*/
 
 	jmp Cstart
 

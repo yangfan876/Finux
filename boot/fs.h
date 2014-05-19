@@ -88,5 +88,13 @@ struct dir_entry
 	char name[MAX_FILENAME_LEN];
 };
 
+/*loader_kernel所需要的宏和结构体*/
+#define KERNEL_LOAD_ADDRESS 0x200000		/*kernel将被加载到2M地址处*/
+#define KERNEL_INFO_ADDRESS 0x100000		/*kernel信息将被加载到1M地址处*/
+struct kernel_info
+{
+	u32 size;
+	u32 start;
+	u32 memory_map_count;
+};
 
-#define KERNEL_LOAD_ADDRESS 0x200000		/*kernel将被加载到1M地址处*/
