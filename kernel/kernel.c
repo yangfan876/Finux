@@ -17,6 +17,7 @@ void kernel_start(void)
 
 void start_kernel(void)
 {
+	u32 *address;
 	/*切换堆栈*/
 	asm("movl $0x1fffff, %esp\n\t"
 		"movl %esp, %ebp\n\t");
@@ -36,6 +37,8 @@ void start_kernel(void)
 
 	/*初始化时钟中断*/
 	init_timer();
+
+	address = get_pages(3);
 
 	/*初始化init线程，并跳转执行*/
 	creat_testA();

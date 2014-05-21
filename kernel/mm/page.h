@@ -1,4 +1,5 @@
 void set_page(void);
+void *get_pages(u32 page_cnt);
 
 /*一个页大小*/
 #define PAGE_SIZE 0x1000

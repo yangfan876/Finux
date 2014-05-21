@@ -13,5 +13,3 @@ void get_memory_info(void)
 		memcpy((void *)&memory_map[i], (void *)(MEMORY_MAP_ADDR + sizeof(struct e820_ARDS) * i), sizeof(struct e820_ARDS));
 	return;
 }
-
-

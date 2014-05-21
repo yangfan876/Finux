@@ -8,6 +8,7 @@ install:
 	python finux_tool/finux.py ./hd.hdimg cp vmFinux.core
 
 remove:
+	cd kernel ** make -f kernel/Makefile clean
 	rm -rf ./hd.hdimg
 	rm -rf ./vmFinux.*
 	rm ./obj.S
