@@ -7,7 +7,7 @@ extern struct kernel_info kernel_info;
 extern struct e820_ARDS memory_map[5];
 
 //页表位图所在地址5M处
-static u8 *page_bit_map = (u32 *)0x500000;
+static u8 *page_bit_map = (u8 *)0x500000;
 static u32 page_cnt;
 static u32 page_bit_map_cnt;
 
@@ -70,7 +70,7 @@ void *get_pages(u32 page_cnt)
 				return page_bit_map + ((i * 8) + (8 - bytein - page_cnt)) * PAGE_SIZE;
 			}
 			else
-				select << 1;
+				select = select << 1;
 		}
 	}
 	return (void *)0x0;

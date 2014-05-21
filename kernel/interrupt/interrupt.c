@@ -1,7 +1,7 @@
 #include <type.h>
 #include "../8259a/8259a.h"
 
-
+/*
 #define interrupt_master(irq)			\
 {										\
 		asm("pushal\n\t"				\
@@ -40,6 +40,7 @@
 			"sti\n\t"					\
 			"iret\n\t");				\
 }
+*/
 
 /*中断处理函数*/
 void irq00_handler(void)
