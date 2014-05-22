@@ -8,7 +8,9 @@ extern struct e820_ARDS memory_map[5];
 
 //页表位图所在地址5M处
 static u8 *page_bit_map = (u8 *)0x500000;
+//page count
 static u32 page_cnt;
+
 static u32 page_bit_map_cnt;
 
 /*页表位图初始化*/
@@ -74,6 +76,22 @@ void *get_pages(u32 page_cnt)
 		}
 	}
 	return (void *)0x0;
+}
+
+void free_pages(void *address, u32 page_cnt)
+{
+	int i, offset;
+	u8 *tmp_map = page_bit_map;
+	u8 select = 0;
+	for (i = 0; i < page_cnt; i++)
+	{
+		select = (select << 1) | 1;
+	}
+	offset = (((u8 *)address - (u8 *)tmp_map) >> 12) / PAGE_SIZE;
+	select  = ~(select << (8 - ((((u8 *)address - (u8 *)tmp_map) >> 12) % 8) - page_cnt));
+	tmp_map += offset;
+	*tmp_map = *tmp_map & select;
+	return;
 }
 
 /*根据探测的内存信息获取所需页数目*/

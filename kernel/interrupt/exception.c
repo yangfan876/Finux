@@ -1,13 +1,6 @@
 #include <type.h>
 #include "../echo/display.h"
 
-/*
-void exception(int vec_num, u32 err_code, u32 eip, u32 cs, u32 eflags)
-{
-	for(;;);
-}
-*/
-
 void exception_handler(int vec_num, char *func_name)
 {
 	dis_str ("EXCEPTION:", 0xa, 0, 0);

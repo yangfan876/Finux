@@ -8,8 +8,6 @@
 
 /*时钟中断号*/
 #define IRQ_TIMER 0x0
-//#define IRQ_REAL_TIMER 0x8
-
 /*硬盘中断号*/
 #define IRQ_AT_HD	0xe
 
@@ -33,6 +31,8 @@
 #define EXC_FLOAT_ERROR 0x10
 #define EXC_ALIGNMENT_CHECK 0x11
 
+/*系统调用*/
+#define SYS_CALL_NUM 0x80
 
 typedef struct desc_struct _idt_;
 typedef struct desc_ptr	_idt_ptr_;

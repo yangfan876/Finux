@@ -29,4 +29,13 @@ irq00_handler:
 	popl %ds
 	popal
 
+/*	movl (%esp), %eax
+	movl 0x4(%esp), %ebx
+	movl 0x8(%esp), %ecx
+	movl %eax, 0x4(%esp)
+	movl %ebx, 0x8(%esp)
+	movl %ecx, (%esp)
+
+	popf
+*/
 	lret

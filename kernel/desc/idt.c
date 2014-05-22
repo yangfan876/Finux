@@ -2,6 +2,7 @@
 #include <sys/gdt.h>
 #include "../8259a/8259a.h"
 #include "../interrupt/exception.h"
+#include "../syscall/sys_call.h"
 
 static _idt_ idt[IDTNUM];
 static _idt_ptr_ idt_ptr ={.size = (IDTNUM * 8 -1),
@@ -28,6 +29,8 @@ static void set_exception_gate(void)
 	set_gate (&idt[EXC_COPR_ERROR], GATE_EXCEPTION, (u32 *)copr_error, 0x0, KCS_LOCAL << 3);
 	set_gate (&idt[EXC_FLOAT_ERROR], GATE_EXCEPTION, (u32 *)float_error, 0x0, KCS_LOCAL << 3);
 	set_gate (&idt[EXC_ALIGNMENT_CHECK], GATE_EXCEPTION, (u32 *)alignment_check, 0x0, KCS_LOCAL << 3);
+	/*系统调用*/
+	set_gate (&idt[SYS_CALL_NUM], GATE_INTERRUPT, (u32 *)sys_entry, 0x0, KCS_LOCAL << 3);
 }
 
 void load_idt(void)
