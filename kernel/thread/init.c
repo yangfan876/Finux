@@ -7,7 +7,7 @@
 static u32 max_pid = 0;
 
 /*ready list*/
-struct thread *READY_LIST;
+struct list_head *READY_LIST;
 /*ready thread*/
 struct thread *READY_THREAD;
 /*current running thread*/
@@ -17,10 +17,6 @@ struct thread *current_thread;
 struct thread init_struct;
 /*init thread stack*/
 struct thread_union init_stack;
-
-struct thread testA_struct;
-struct thread_union testA_stack;
-
 
 static void testA(void)
 {
@@ -43,16 +39,20 @@ static void testA(void)
 
 static void init_thread(void)
 {
+	struct thread *testA_thread;
 	dis_str("Init thread running.", 0xb, 0, 0);
 
+	/*创建testA_thread*/
+	testA_thread = thread_creat("testA", (u32 *)testA);
+
 	/*init READY_LIST*/
-	READY_LIST = &init_struct;
+	READY_LIST = (struct list_head *)&testA_thread->elem;
+
 	/*init current_thread*/
 	current_thread = &init_struct;
-	/*init READY_THREAD*/
-	READY_THREAD = (struct thread *)0x0;
 
-	thread_creat("testA", (u32 *)testA);
+	/*init READY_THREAD*/
+	READY_THREAD = (struct thread *) list_entry(READY_LIST, struct thread, elem);
 
 	for (;;)
 	  asm("incb %gs:(40)");
@@ -66,6 +66,8 @@ void creat_init(void)
 	init_struct.function = (u32)init_thread;
 	init_struct.esp = (u32)&(init_stack.regs);
 	init_struct.stack = (u32 *)&(init_stack.thread_stack);
+
+	INIT_LIST_HEAD(&init_struct.elem);
 
 	/*初始化寄存器*/
 	init_stack.regs.ds = KDS;
@@ -95,6 +97,8 @@ struct thread *thread_creat(char *name, u32 *function)
 {
 	struct thread *thread_struct = (struct thread *)get_pages(1);
 	struct thread_union *stack_union = (struct thread_union *)get_pages(3);
+
+	INIT_LIST_HEAD(&thread_struct->elem);
 
 	thread_struct->pid = get_pid();
 	memcpy(thread_struct->thread_name, name, strlen(name));

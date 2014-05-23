@@ -4,33 +4,11 @@
 #include "timer.h"
 #include "interrupt.h"
 #include "../thread/thread.h"
+#include "../thread/init.h"
 
-/*static char ticks = 'A';
-
-static void timer_handler(void)
-{
-	if (ticks == 'z')
-		ticks = 'A';
-
-	asm(
-		"movb $0xc, %ah\n\t"
-		"movb ticks, %al\n\t"
-		"movw %ax, %gs:(24*160)\n\t"
-		"movb $0x20, %al\n\t"
-		"outb %al, $0x20\n\t"
-		);
-	ticks ++;
-	return;
-
-}
-*/
-
-extern struct thread init_struct;
-extern struct thread_union init_stack;
-extern struct thread testA_struct;
-extern struct thread_union testA_stack;
-
+extern struct list_head *READY_LIST;
 extern struct thread *current_thread;
+extern struct thread *READY_THREAD;
 
 static u32 ticks = 1;
 
@@ -38,17 +16,21 @@ void timer_handler(void)
 {
 	ticks++;
 
-	if (ticks % 20 == 0)
+	if (ticks % 20 == 0 && READY_LIST != 0x0)
 	{
-		if (current_thread == &testA_struct)
-		  current_thread = &init_struct;
-		else
-		  current_thread = &testA_struct;
+		list_add_tail(&current_thread->elem, READY_LIST->prev);
+
+		READY_THREAD = list_entry(READY_LIST, struct thread, elem);
+
+		READY_LIST = READY_LIST->next;
+
+		list_del (&READY_THREAD->elem);
+
+		current_thread = READY_THREAD;
 	}
 
 	return;
 }
-
 
 void init_timer(void)
 {

@@ -1,6 +1,6 @@
 #include <list.h>
 
-static inline void INIT_LIST_HEAD(struct list_head *list)
+inline void INIT_LIST_HEAD(struct list_head *list)
 {
 	list->prev = list;
 	list->next = list;
@@ -35,8 +35,9 @@ static inline void  __list_del(struct list_head *prev, struct list_head *next)
 inline void list_del(struct list_head *entry)
 {
 	__list_del(entry->prev, entry->next);
-	entry->prev = (struct list_head *)0x0;
-	entry->next = (struct list_head *)0x0;
+//	entry->prev = (struct list_head *)0x0;
+//	entry->next = (struct list_head *)0x0;
+	INIT_LIST_HEAD(entry);
 }
 
 inline void list_replace(struct list_head *new, struct list_head *old)
@@ -45,6 +46,7 @@ inline void list_replace(struct list_head *new, struct list_head *old)
 	new->next->prev = new;
 	new->prev = old->prev;
 	new->prev->next = new;
-	old->next = (struct list_head *)0x0;
-	old->prev = (struct list_head *)0x0;
+//	old->next = (struct list_head *)0x0;
+//	old->prev = (struct list_head *)0x0;
+	INIT_LIST_HEAD(old);
 }
