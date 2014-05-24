@@ -2,6 +2,7 @@
 #include "desc/gdt.h"
 #include "asm.h"
 #include "8259a/8259a.h"
+#include "8259a/8253.h"
 #include "interrupt/timer.h"
 #include "thread/init.h"
 #include "mm/mm.h"
@@ -34,6 +35,8 @@ void start_kernel(void)
 	/*初始化时钟中断*/
 	init_timer();
 	/*初始化init线程，并跳转执行*/
+
+	init_8253();
 	creat_init();
 
 	/*初始化完init线程将不会在执行到这里，如果执行下面的指令，

@@ -35,8 +35,6 @@ static void testA(void)
 	  asm("incb %gs:(160+40)");
 }
 
-
-
 static void init_thread(void)
 {
 	struct thread *testA_thread;
@@ -120,28 +118,3 @@ struct thread *thread_creat(char *name, u32 *function)
 
 	return thread_struct;
 }
-
-
-
-/*
-void creat_testA()
-{
-
-	//初始化其他信息
-	testA_struct.pid = 0;	//init线程pid初始化为0
-	memcpy(testA_struct.thread_name, "testA", 11);
-	testA_struct.function = (u32)testA;
-	testA_struct.esp = (u32)&(testA_stack.regs);
-
-	//初始化寄存器
-	testA_stack.regs.ds = KDS;
-	testA_stack.regs.cs = KCS;
-	testA_stack.regs.es = KDS;
-	testA_stack.regs.fs = KDS;
-	testA_stack.regs.ss = KDS;
-	testA_stack.regs.gs = GS;
-	testA_stack.regs.eip = (u32)testA;
-	testA_stack.regs.esp = (u32)testA_struct.stack;
-	testA_stack.regs.eflags = 0x1202;
-	testA_stack.thread_struct = &testA_struct;
-}*/
