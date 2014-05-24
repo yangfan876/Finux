@@ -1,5 +1,6 @@
 SOURCE_FILE := kernel.c
-OBJ_FILE := kernel.o desc/gdt.o asm.o 8259a/8259a.o desc/idt.o interrupt/interrupt.o interrupt/timer.o interrupt/exception.o echo/display.o string.o thread/init.o schedule.o switch.o mm/mm.o mm/page.o syscall/sys_entry.o syscall/sys_call.o list.o 8259a/8253.o
+OBJ_FILE := kernel.o desc/gdt.o asm.o 8259a/8259a.o desc/idt.o interrupt/interrupt.o interrupt/timer.o interrupt/exception.o echo/display.o string.o thread/init.o schedule.o switch.o mm/mm.o mm/page.o syscall/sys_entry.o syscall/sys_call.o list.o 8259a/8253.o sync/sync.o
+
 OBJ := vmFinux.core
 LD := ld
 CC := gcc
@@ -36,6 +37,7 @@ $(OBJ_FILE): $(SOURCE_FILE)
 	$(CC) $(LOADER_CFLAGS) mm/page.o mm/page.c
 	$(CC) $(LOADER_CFLAGS) syscall/sys_call.o syscall/sys_call.c
 	$(CC) $(LOADER_CFLAGS) 8259a/8253.o 8259a/8253.c
+	$(CC) $(LOADER_CFLAGS) sync/sync.o sync/sync.c
 
 ####
 	$(AS) $(LOADER_ASFLAGS) interrupt/interrupt.o interrupt/interrupt.S

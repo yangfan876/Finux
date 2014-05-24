@@ -4,6 +4,7 @@
 
 sys_entry:
 
+	pushal
 	pushl %ds
 	pushl %es
 	pushl %fs
@@ -33,6 +34,7 @@ sys_entry:
 	popl %fs
 	popl %es
 	popl %ds
+	popal
 
 	movl (%esp), %eax
 	movl 0x4(%esp), %ebx

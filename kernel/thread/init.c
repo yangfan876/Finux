@@ -3,6 +3,7 @@
 #include "../schedule.h"
 #include "thread.h"
 #include "../mm/page.h"
+#include "../sync/sync.h"
 
 static u32 max_pid = 0;
 
@@ -18,7 +19,10 @@ struct thread init_struct;
 /*init thread stack*/
 struct thread_union init_stack;
 
-static void testA(void)
+
+
+/*系统调用测试*/
+/*static void testA(void)
 {
 	dis_str("in the testA thread", 0xb, 1, 0);
 
@@ -31,26 +35,64 @@ static void testA(void)
 		"movl $0x6, %edi\n\t"
 		"int $0x80\n\t"
 		);
+
 	for (;;)
 	  asm("incb %gs:(160+40)");
 }
+*/
 
+/*锁测试*/
+struct lock test_lock;
+
+static void test_lock1(void)
+{
+	int i;
+	dis_str("in the test_lock1 thread", 0xb, 1, 0);
+
+	lock_acquire(&test_lock);
+	for (i = 0; i < 21474800/2; i++)
+	  asm("incb %gs:(160+40)");
+	lock_realse(&test_lock);
+	for(;;)
+	  asm("incb %gs:(160+50)");
+}
+
+static void test_lock2(void)
+{
+	dis_str("in the test_lock2 thread", 0xb, 2, 0);
+
+	lock_acquire(&test_lock);
+	for (;;)
+	  asm("incb %gs:(160+160+40)");
+
+}
 static void init_thread(void)
 {
 	struct thread *testA_thread;
+	struct thread *test_LOCK1, *test_LOCK2;
 	dis_str("Init thread running.", 0xb, 0, 0);
 
 	/*创建testA_thread*/
-	testA_thread = thread_creat("testA", (u32 *)testA);
+//	testA_thread = thread_creat("testA", (u32 *)testA);
 
+	/*下面两个线程用于测试锁机制*/
+	/*创建test_LOCK*/
+	test_LOCK1 = thread_creat("test_LOCK1", (u32 *)test_lock1);
+	test_LOCK2 = thread_creat("test_LOCK2", (u32 *)test_lock2);
+
+	get_lock(&test_lock);
+
+	asm("cli");
 	/*init READY_LIST*/
-	READY_LIST = (struct list_head *)&testA_thread->elem;
+//	READY_LIST = (struct list_head *)&testA_thread->elem;
 
+	READY_LIST = (struct list_head *)&test_LOCK1->elem;
+	list_add_tail(&test_LOCK2->elem, READY_LIST->prev);
 	/*init current_thread*/
 	current_thread = &init_struct;
-
 	/*init READY_THREAD*/
 	READY_THREAD = (struct thread *) list_entry(READY_LIST, struct thread, elem);
+	asm("sti");
 
 	for (;;)
 	  asm("incb %gs:(40)");
@@ -117,4 +159,11 @@ struct thread *thread_creat(char *name, u32 *function)
 	current_thread = &init_struct;
 
 	return thread_struct;
+}
+
+void thread_yield(void)
+{
+	asm("movl $1, %eax\n\t"
+		"int $0x80\n\t");
+	return;
 }

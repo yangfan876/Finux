@@ -23,7 +23,7 @@ inline void list_add(struct list_head *new, struct list_head *head)
 
 inline void list_add_tail(struct list_head *new, struct list_head *tail)
 {
-	__list_add(new, tail->prev, tail);
+	__list_add(new, tail, tail->next);
 }
 
 static inline void  __list_del(struct list_head *prev, struct list_head *next)
